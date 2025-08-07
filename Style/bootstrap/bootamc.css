@@ -1,0 +1,461 @@
+﻿/* 
+
+---Bootstrap grid---
+xs  <   576px   
+sm  >=  576px
+md  >=  768px
+lg  >=  992px
+xl  >=  1200px
+
+*/
+
+/* Bloc de la largeur totale de la page ou de l'élément parent
+   - Permet de créer un beandeau coloré sur toute la largeur de la page
+*/
+.LargeurTotale
+{   
+    position: relative; 
+    float:left;
+    width:100%;
+}
+
+/*
+    Bloc centré avec largeur maximale
+    Utilisé pour limiter la largeur des contenus dans les pages
+*/
+
+.LargeurMax
+{
+    max-width: 1400px;
+    position: relative;
+    width: 100%;
+    height:auto;
+    margin:0 auto;
+}
+
+
+
+/***************************/
+/*     Bloc Icones         */
+/***************************/
+
+/* Menu en haut à droite */
+.HautDroiteIcones
+{
+    display:block;
+    position:absolute;
+    top:0;
+    right:0px;
+}
+
+@media all and (max-width: 991px)
+{
+    .HautDroiteIcones
+    {
+        position:relative;
+        float:left;
+        width:100%;
+    }
+}
+
+/* */
+
+a.BoutonHaut
+{
+    position:relative;
+    float:right;
+    height:100%;
+    display:flex;
+	flex-direction: column;
+    padding:0 15px;
+    background:#cccccc;
+    text-decoration:none;
+}
+
+.BoutonHaut img,
+.BoutonHaut span
+{
+    margin:auto; 
+    color:#ffffff;
+}
+
+
+
+
+/****************************/
+/*    Bloc Image + Texte    */
+/****************************/
+
+.BlocImgTexte
+{
+    position:relative;
+    float:left;
+    width:100%;
+    height:auto;
+}
+
+.BlocImgTexte a
+{
+    position:relative;
+    float:left;
+    width:100%;
+    display:block;  
+        height:auto;  
+}
+
+.BlocImgTexte_BlocImage
+{
+      position: relative;
+      float:left;
+      width:100%;
+      overflow: hidden;
+      height:90px;
+}
+      
+/*.BlocImgTexte_BlocImage:after {          
+    padding-top: 56%;
+    display: block;
+    content: '';
+}*/
+
+.BlocImgTexte img
+{
+    position:absolute;
+    width: 100%;    
+}
+
+
+.BlocImgTexte_BlocTexte
+{
+    position: relative;
+    float:left;
+    width: 100%;
+    height:auto;
+	display:flex;
+	flex-direction: column;
+	background:#d81b60;
+    
+}      
+
+.BlocImgTexte_BlocTexte span
+{
+    position: relative;
+    margin:0;
+    color:#ffffff;
+    display:inline-block;
+    padding:5px 15px;
+    text-align:center;
+    
+}
+
+/**********/
+/* Actu_1 */
+/**********/
+
+.Actu_1
+{
+    position: relative;
+    float:left;
+}
+	
+.Actu_1 a
+{
+text-decoration:none;
+}
+    
+    
+.Actu_1  .ActuImage
+{  
+    position: relative;
+    float:left;
+    padding:15px;
+	height:100%;
+}
+	
+.Actu_1  .ActuImage div
+    {  
+    overflow:hidden;
+	height:100%;
+	text-align:center;		
+}
+	
+.Actu_1  .ActuImage img
+{  
+    width:100%;
+	margin:0 auto;
+		
+}
+    
+    
+.Actu_1 .ActuTexte
+{  
+} 
+    
+.Actu_1 .LabActuTitre
+{
+    color:#3d88c9;
+    text-transform:uppercase;
+    font-weight:bold;
+    width:100%;
+    display:block;
+}
+    
+.Actu_1 .LabActuTexte
+{
+    width:100%;
+    display:block;
+}
+
+
+
+/************/
+/* Agenda_1 */
+/************/
+
+.Agenda_1 a
+{
+    text-decoration:none;
+}
+
+.Agenda_1 .EventDate
+{
+    display: block;
+    position: relative;
+    width:100%; 
+}
+	
+.Agenda_1 .EventDate .Date
+{
+	  position: relative;
+	  display:inline;
+	}
+	
+.Agenda_1 .EventDate a, .EventDate a:hover
+{
+	color:#ffffff;
+}
+    
+.Agenda_1 .EventJour
+{
+    text-transform:uppercase;
+    display:inline-block;
+}
+    
+.Agenda_1 .EventMois
+{
+    text-transform:uppercase;
+    display:inline-block;
+}
+    
+.Agenda_1 .EventContenu
+{        
+    position: relative;
+    float: left;
+    width:100%;
+}
+       
+        
+.Agenda_1 .EventTitre
+{
+	position:relative;
+	float:left;
+	width:100%;
+        
+}
+    
+.Agenda_1 .EventDesc
+{
+    line-height:100%;
+    width:100%;
+    display:inline-block;
+}
+
+/*******************************************************/
+/*   Bloc Absolute Haut droite / Relative bas Gauche   */
+/*******************************************************/
+
+
+.AbsHD_RelBG
+{
+    Position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+
+@media all and (max-width: 991px)
+{
+    .AbsHD_RelBG
+    {    
+	    position:relative;
+	    float:left;
+        top: 0px;
+        right: 0px;
+	    margin:15px;
+    }
+    
+}
+
+/*******************************************************/
+/*   Bloc Menu Accès Direct avec picto + Libelle   */
+/*******************************************************/
+
+#Menu_AccesDirects
+{        
+    position:relative;
+    float:left;
+	width:100%;
+}  
+
+#Menu_AccesDirects #TitreAcces
+{
+    position:relative;
+    float:left;
+    background:#bbbbbb;
+    width:100%;
+    padding:3px 15px;
+	display:flex;
+	flex-direction:column;
+    height:34px;
+}
+
+#Menu_AccesDirects #TitreAcces .LibelleTitreAcces,
+#Menu_AccesDirects #TitreAcces h1,
+#Menu_AccesDirects #TitreAcces span
+{
+    color:#ffffff;
+    width:100%;
+    margin:auto 0;
+}
+
+#Menu_AccesDirects .LigneAcces
+{
+    border-bottom:1px solid #dadada;
+}
+
+#Menu_AccesDirects .LigneAcces,
+#Menu_AccesDirects .LigneAcces a
+{       
+    position:relative;
+    float:left; 
+    width:100%;
+    height:47px;
+}  
+   
+
+#Menu_AccesDirects .LigneAccesPicto
+{        
+    position:relative;
+    float:left;
+    width:20%;
+    height:46px;
+    background:#999999;
+    text-align:center;  
+	vertical-align:middle;
+	display:flex;
+	flex-direction:column;
+	
+}  
+
+#Menu_AccesDirects .LigneAccesPicto Img{
+  position: relative;
+  margin:auto;
+}
+
+
+#Menu_AccesDirects .LigneAccesLibelle
+{      
+	position:relative;
+    float:left;
+    width:80%;
+    height:46px;
+	vertical-align:middle;
+    background:#dddddd;
+    text-transform:uppercase;
+    font-size:0.87em;
+	display:flex;
+	flex-direction:column;
+    
+}  
+
+#Menu_AccesDirects .LigneAccesLibelle span
+{  
+  position: relative;
+  float:left;
+  margin:auto 10px;
+  height:auto;
+  display:block;
+  width:calc(100% - 20px);
+}
+
+
+
+/*******************************************************/
+/*              Bloc Etiquette bloc                    */
+/*******************************************************/
+
+.Etiquette
+{
+    background:#0065a7;
+	display:flex;
+	flex-direction:column;
+	padding:5px 30px;
+}
+
+.Etiquette a,
+.Etiquette span,
+.Etiquette div
+{
+    position: relative;
+    margin:auto;
+    color:#ffffff;
+    text-decoration:none;
+}
+
+
+.Etiquette_HautGauche,
+.Etiquette_HautDroite,
+.Etiquette_BasGauche,
+.Etiquette_BasDroite
+{
+    background:0065a7;
+	display:flex;
+	flex-direction:column;
+}
+
+.Etiquette_HautGauche /* Ajouter margin-top sur bloc parent correspondant à la hauteur de l'étiquette */
+{
+    position: absolute;
+    float:left;
+    top:-34px;
+    left:0;
+    height:34px;
+}
+
+.Etiquette_HautDroite /* Ajouter margin-top sur bloc parent correspondant à la hauteur de l'étiquette */
+{
+    position: absolute;
+    float:left;
+    top:-34px;
+    right:0;
+    height:34px;
+}
+
+.Etiquette_BasGauche /* Ajouter margin-bottom sur bloc parent correspondant à la hauteur de l'étiquette */
+{
+    position: absolute;
+    float:right;
+    bottom:-34px;
+    left:0;
+    height:34px;
+}
+
+.Etiquette_BasDroite /* Ajouter margin-bottom sur bloc parent correspondant à la hauteur de l'étiquette */
+{
+    position: absolute;
+    float:right;
+    bottom:-34px;
+    right:0;
+    height:34px;
+}
+
