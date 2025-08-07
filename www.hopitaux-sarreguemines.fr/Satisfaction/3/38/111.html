@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="../../../../www.w3.org/1999/xhtml/index.html">
+
+<script src="../../../../code.jquery.com/jquery.js"></script>
+
+
+<!-- Mirrored from www.hopitaux-sarreguemines.fr/Satisfaction/3/38/111 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:05:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- Pour que les tablettes et smartphone adapte la page à la résolution -->
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+<meta name="viewport" content="height=device-height; initial-scale=1; maximum-scale=1">
+
+
+<!-- JQuery -->
+<script src="../../../../code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+<!-- APPEL VERS LES LIBRAIRIE JS JQUERY ET DATATABLE  -->
+<script type="text/javascript" language="javascript" src="../../../Scripts/jqueryUI/jquery.dataTables.js"></script>
+<!-- APPEL DES CSS MODIFIABLE EN FONCTION DE LA CHARTE GRAPHIQUE -->
+<link href="../../../Style/jqueryUI/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../../Style/jqueryUI/jquery.dataTables.css" />
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="../../../Style/bootstrap/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../../../Style/bootstrap/bootamc.css" type="text/css" />
+<script type="text/javascript" src="../../../Scripts/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../Scripts/bootstrap/transition.js"></script>
+<script type="text/javascript" src="../../../Scripts/bootstrap/collapse.js"></script>
+
+
+<!-- ekko-lightbox -->
+<link href="../../../Style/bootstrap/ekko-lightbox.min.css" rel="stylesheet">
+<script src="../../../Scripts/bootstrap/ekko-lightbox.min.js"></script>
+
+<!-- Responsive slider -->
+<script src="../../../Scripts/ResponsiveSlider/responsiveslides.js"></script>
+
+
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="//Scripts/respond.min.js"></script>
+    <script type="text/javascript" src="//Scripts/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="//Scripts/css-media-query-ie.min.js"></script>
+    <script type="text/javascript" src="//Scripts/css-media-query-ie.js"></script>
+    <![endif]-->
+
+<link href="../../../../fonts.googleapis.com/csscaf0.css?family=Montserrat:400,500,600,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" href="../../../Style/FontAwesome/css/all.min.css" type="text/css" />
+
+
+
+
+<style type="text/css">
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        font-family: Arial;
+    }
+
+    /*Visibilité des div*/
+
+    .Cache {
+        display: none;
+    }
+
+    .Visible {
+        display: block;
+    }
+
+    .ScrollDiv {
+        width: auto;
+    }
+	
+	
+	/* Recherche Google */
+	.gsc-control-cse
+	{
+		padding:0;
+	}
+	
+	.gsc-search-button
+	{
+		background-color: #60a9dd;
+		border-radius: 5px;
+
+	}
+	
+</style>
+<script type="text/javascript">
+    function CallPrint() {
+        var prtContent = document.getElementById('contenu');
+        var WinPrint = window.open('', '', 'letf=0,top=0,width=710,height=600,toolbar=0,scrollbars=1,status=0');
+
+        WinPrint.document.write('<style type="text/css">html{font-size: 16px;}</style><link rel="stylesheet" type="text/css" href="../../../Style/Style.css"><link rel="stylesheet" type="text/css" href="../../../Style/StyleCK.css"><body>' + prtContent.innerHTML + '</body>');
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+    }
+
+
+    function PortailOver(PortailID) {
+        window.document.getElementById("CadreModule" + PortailID).className = "Visible";		 
+		/*if(PortailID == "8")
+		{
+			window.document.getElementById("ctl00_PanContentPlaceHolder1").style.display = "none";
+			window.document.getElementById("ctl00_PanOffresdeSoins").style.display = "block";
+			window.document.getElementById("ctl00_PanEnteteListe").style.display = "none";
+			
+		}
+		*/	
+    }
+
+    function PortailOut(PortailID) {
+        window.document.getElementById("CadreModule" + PortailID).className = "Cache";				 
+		/*if(PortailID != "8")
+		{
+			window.document.getElementById("ctl00_PanContentPlaceHolder1").style.display = "block";
+			window.document.getElementById("ctl00_PanOffresdeSoins").style.display = "none";
+			window.document.getElementById("ctl00_PanEnteteListe").style.display = "block";
+		}*/
+    }
+
+    function AfficheCacheDiv(Div) {
+        if (window.document.getElementById(Div).className == "Cache") {
+            window.document.getElementById(Div).className = "Visible";
+        }
+        else {
+            window.document.getElementById(Div).className = "Cache";
+        }
+    }
+
+    function AfficheDivOver(Div) {
+        window.document.getElementById(Div).className = "Visible";
+    }
+
+    function CacheDivOver(Div) {
+        window.document.getElementById(Div).className = "Cache";
+    }
+
+    function AfficheSousModule(Cible) {
+        window.document.getElementById("CadreSousModule_" + Cible).style.display = "block";
+    }
+
+    function CacheSousModule(Cible) {
+        window.document.getElementById("CadreSousModule_" + Cible).style.display = "none";
+    }
+
+    function AfficheDiv(Div) {
+        window.document.getElementById(Div).style.display = "block";
+    }
+
+    function CacheDiv(Div) {
+        window.document.getElementById(Div).style.display = "none";
+    }
+	
+	
+    $(function () {	
+		
+		
+        
+		// window load
+		$( document ).ready(function() {
+            // ouverture du 1er item par défaut dans le portail Patient et Entourage
+            //$('.Portail2 .panel-group a:first').trigger("click");
+		});
+
+		
+		/* scroll si entete plus haut que haut de la fenêtre */
+        $('.panel-collapse').on('shown.bs.collapse', function (e) {
+		
+			var $panel = $(this),			 
+			$window    = $(window),
+			offset     = $panel.offset();
+						
+			if ($(this).is(e.target)) 
+			{
+				if($window.scrollTop() > offset.top)
+				{			
+					$('html,body').animate({
+						scrollTop: $panel.parent().offset().top
+					}, 500);
+				}
+			}
+        });
+    });
+</script>
+
+
+
+
+<head id="ctl00_Head1"><title>
+	
+        CH - GHT de Sarreguemines 
+</title>
+    <!-- styles minimum pour les nouveaux site créés -->
+    <!--<link rel="stylesheet" type="text/css" href="../../../Style/default.css" />-->
+
+    <!-- styles bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="../../../Style/Style.css" /><link rel="stylesheet" type="text/css" href="../../../Style/bootstrap/bootamc.css" />
+
+    <!-- styles presonnalisé du site -->
+    <link rel="stylesheet" type="text/css" href="../../../Style/Master.css" /><link rel="stylesheet" type="text/css" href="../../../Ght_sarreguemines.css" /><link rel="stylesheet" type="text/css" href="../../../Style/StyleCK.css" /><link rel="stylesheet" type="text/css" href="../../../Style/Slideshow.css" />
+    <script type="text/javascript">
+        function GoToDetail() {
+            $('html,body').animate({ scrollTop: $("#TitreListe").offset().top }, 'slow')
+        }
+    </script>
+<meta content="GHT de Sarreguemines " name="description" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="https://www.hopitaux-sarreguemines.fr/Satisfaction/3/38/111" id="aspnetForm">
+<div>
+<input type="hidden" name="ctl00_ToolkitScriptManager1_HiddenField" id="ctl00_ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIMzA4OTkzODMPFgoeCk1vZHVsZUlEdnMCJh4KTGFuZ3VlSUR2cwIBHgxMaXN0ZUNsYXNzdnMFC0xpc3RlQm91dG9uHgxMaXN0ZVN0eWxldnMFMGNsYXNzPSdMaXN0ZUdhdWNoZSBjb2wteHMtMTIgY29sLW1kLTInICBzdHlsZT0nJx4MVGV4dGVTdHlsZXZzBSdjbGFzcz0nY29sLXhzLTEyIGNvbC1tZC0xMCBMaXN0ZURldGFpbCcWAmYPDxYKHgtUaXRyZVBhZ2V2cwUaQ0ggLSBHSFQgZGUgU2FycmVndWVtaW5lcyAfAQIBHgtQb3J0YWlsSUR2cwICHwACJh4NSW1hZ2VDZW50cmV2cwUtL1Jlc3NvdXJjZXMvRlRQL2JhbmRlYXVfbW9kdWxlL01vZHVsZV9EZWYuanBnZBYCAgEPFgIeBmFjdGlvbgUWL1NhdGlzZmFjdGlvbi8zLzM4LzExMRYkAgIPDxYEHgtOYXZpZ2F0ZVVybAUPfi91cmdlbmNlcy8yLzY0HgRUZXh0BQhVcmdlbmNlc2RkAgMPDxYCHwkFG34vUmVuZGV6LXZvdXMtZW4tbGlnbmUvMi8zMGRkAgQPFgIeC18hSXRlbUNvdW50AgMWBmYPZBYIZg8VBAE4ATgBOAtQb3J0YWlsTGllbmQCAQ8PFgIfCQUVfi9PZmZyZS1kZS1zb2lucy8yLzY4ZBYCZg8VAQ5PZmZyZSBkZSBzb2luc2QCBA8VAgE4BUNhY2hlZAIFDxYCHwtmZAIBD2QWCGYPFQQBMgEyATIPUG9ydGFpbExpZW5PdmVyZAIBD2QWAmYPFQEUUGF0aWVudCBldCBlbnRvdXJhZ2VkAgQPFQIBMgVDYWNoZWQCBQ8WAh8LAgUWCmYPZBYIZg8VAwtDYWRyZU1vZHVsZQI3NQI3NWQCAw8PFgYeBlRhcmdldGUfCgUMQ29uc3VsdGF0aW9uHwkFEy9Db25zdWx0YXRpb25zLzMvNzVkZAIEDxUBAjc1ZAIFDxYCHwtmZAIBD2QWCGYPFQMLQ2FkcmVNb2R1bGUCNTcCNTdkAgMPDxYGHwxlHwoFD0hvc3BpdGFsaXNhdGlvbh8JBRUvSG9zcGl0YWxpc2F0aW9uLzMvNTdkZAIEDxUBAjU3ZAIFDxYCHwtmZAICD2QWCGYPFQMLQ2FkcmVNb2R1bGUCNzcCNzdkAgMPDxYGHwxlHwoFGlJlbmRyZSB2aXNpdGUgw6AgdW4gcHJvY2hlHwkFFy9WaXNpdGVyLXVuLXByb2NoZS8zLzc3ZGQCBA8VAQI3N2QCBQ8WAh8LZmQCAw9kFghmDxUDC0NhZHJlTW9kdWxlAjM3AjM3ZAIDDw8WBh8MZR8KBQ5SRUdMRU1FTlRBVElPTh8JBRUvcsOoZ2xlbWVudGF0aW9uLzIvMzdkZAIEDxUBAjM3ZAIFDxYCHwtmZAIED2QWCGYPFQMPQ2FkcmVNb2R1bGVPdmVyAjM4AjM4ZAIDDw8WBh8MZR8KBQxTYXRpc2ZhY3Rpb24fCQUSL1NhdGlzZmFjdGlvbi8zLzM4ZGQCBA8VAQIzOGQCBQ8WAh8LZmQCAg9kFghmDxUEATcBNwE3C1BvcnRhaWxMaWVuZAIBD2QWAmYPFQEOUHJvZmVzc2lvbm5lbHNkAgQPFQIBNwVDYWNoZWQCBQ8WAh8LAgYWDGYPZBYIZg8VAwtDYWRyZU1vZHVsZQI4OQI4OWQCAw8PFgYfDGUfCgUPQ29taXTDqSBFdGhpcXVlHwkFFC9jb21pdGUtZXRoaXF1ZS8yLzg5ZGQCBA8VAQI4OWQCBQ8WAh8LZmQCAQ9kFghmDxUDC0NhZHJlTW9kdWxlAjk1Ajk1ZAIDDw8WBh8MZR8KBSZQw6lwaW5pw6hyZSBkJ2VudHJlcHJpc2UgRS1zYW50w6kgQ0NETB8JBSkvcGVwaW5pZXJlLWQtZW50cmVwcmlzZS1lLXNhbnRlLWNjZGwvMy85NWRkAgQPFQECOTVkAgUPFgIfC2ZkAgIPZBYIZg8VAwtDYWRyZU1vZHVsZQIzMQIzMWQCAw8PFgYfDGUfCgUYUHJvZmVzc2lvbm5lbHMgZGUgc2FudMOpHwkFHS9Qcm9mZXNzaW9ubmVscy1kZS1zYW50ZS8zLzMxZGQCBA8VAQIzMWQCBQ8WAh8LZmQCAw9kFghmDxUDC0NhZHJlTW9kdWxlAjMyAjMyZAIDDw8WBh8MZR8KBQ9PZmZyZXMgZCdlbXBsb2kfCQUML0VtcGxvaS83LzMyZGQCBA8VAQIzMmQCBQ8WAh8LZmQCBA9kFghmDxUDC0NhZHJlTW9kdWxlAjg4Ajg4ZAIDDw8WBh8MZR8KBSxTaWduYWxlbWVudCBkZXMgdmlvbGVuY2VzIGV0IGR1IGhhcmPDqGxlbWVudB8JBTEvc2lnbmFsZW1lbnQtZGVzLXZpb2xlbmNlcy1ldC1kdS1oYXJjZWxlbWVudC8yLzg4ZGQCBA8VAQI4OGQCBQ8WAh8LZmQCBQ9kFghmDxUDC0NhZHJlTW9kdWxlAjM0AjM0ZAIDDw8WBh8MZR8KBRRBY2hhdHMsIGZvdXJuaXNzZXVycx8JBRIvRm91cm5pc3NldXJzLzMvMzRkZAIEDxUBAjM0ZAIFDxYCHwtmZAIFDxYCHwsCAxYGZg9kFgZmDxUCDlNQX0ZvbmRQb3J0YWlsFC9PZmZyZS1kZS1zb2lucy8yLzY4ZAIBDw8WBB8KBQ5PRkZSRSBERSBTT0lOUx4PQ29tbWFuZEFyZ3VtZW50BQE4ZGQCAw8WAh8LZmQCAQ9kFgZmDxUCDlNQX0ZvbmRQb3J0YWlsGS9QcmVuZHJlLXJlbmRlei12b3VzLzMvNzRkAgEPDxYEHwoFFFBBVElFTlQgRVQgRU5UT1VSQUdFHw0FATJkZAIDDxYCHwsCBRYKZg9kFghmDxUBEy9Db25zdWx0YXRpb25zLzMvNzVkAgEPDxYEHwoFDENvbnN1bHRhdGlvbh8NBQI3NWRkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwtmZAIBD2QWCGYPFQEVL0hvc3BpdGFsaXNhdGlvbi8zLzU3ZAIBDw8WBB8KBQ9Ib3NwaXRhbGlzYXRpb24fDQUCNTdkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8LZmQCAg9kFghmDxUBFy9WaXNpdGVyLXVuLXByb2NoZS8zLzc3ZAIBDw8WBB8KBRpSZW5kcmUgdmlzaXRlIMOgIHVuIHByb2NoZR8NBQI3N2RkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwtmZAIDD2QWCGYPFQEVL3LDqGdsZW1lbnRhdGlvbi8yLzM3ZAIBDw8WBB8KBQ5SRUdMRU1FTlRBVElPTh8NBQIzN2RkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwtmZAIED2QWCGYPFQESL1NhdGlzZmFjdGlvbi8zLzM4ZAIBDw8WBB8KBQxTYXRpc2ZhY3Rpb24fDQUCMzhkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8LZmQCAg9kFgZmDxUCDlNQX0ZvbmRQb3J0YWlsHS9Qcm9mZXNzaW9ubmVscy1kZS1zYW50ZS8zLzMxZAIBDw8WBB8KBQ5QUk9GRVNTSU9OTkVMUx8NBQE3ZGQCAw8WAh8LAgYWDGYPZBYIZg8VARQvY29taXRlLWV0aGlxdWUvMi84OWQCAQ8PFgQfCgUPQ29taXTDqSBFdGhpcXVlHw0FAjg5ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfC2ZkAgEPZBYIZg8VASkvcGVwaW5pZXJlLWQtZW50cmVwcmlzZS1lLXNhbnRlLWNjZGwvMy85NWQCAQ8PFgQfCgUmUMOpcGluacOocmUgZCdlbnRyZXByaXNlIEUtc2FudMOpIENDREwfDQUCOTVkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8LZmQCAg9kFghmDxUBHS9Qcm9mZXNzaW9ubmVscy1kZS1zYW50ZS8zLzMxZAIBDw8WBB8KBRhQcm9mZXNzaW9ubmVscyBkZSBzYW50w6kfDQUBMWRkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwtmZAIDD2QWCGYPFQEML0VtcGxvaS83LzMyZAIBDw8WBB8KBQ9PZmZyZXMgZCdlbXBsb2kfDQUCMzJkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8LZmQCBA9kFghmDxUBMS9zaWduYWxlbWVudC1kZXMtdmlvbGVuY2VzLWV0LWR1LWhhcmNlbGVtZW50LzIvODhkAgEPDxYEHwoFLFNpZ25hbGVtZW50IGRlcyB2aW9sZW5jZXMgZXQgZHUgaGFyY8OobGVtZW50Hw0FAjg4ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfC2ZkAgUPZBYIZg8VARIvRm91cm5pc3NldXJzLzMvMzRkAgEPDxYEHwoFFEFjaGF0cywgZm91cm5pc3NldXJzHw0FAjM0ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfC2ZkAgYPDxYCHghJbWFnZVVybAUaL2ltYWdlcy9EZWZhdWx0L0FNb2lucy5wbmdkZAIHDw8WAh8OBRUvaW1hZ2VzL0RlZmF1bHQvQS5wbmdkZAIIDw8WAh8OBRkvaW1hZ2VzL0RlZmF1bHQvQVBsdXMucG5nZGQCCg8PFgIeB1Zpc2libGVoZGQCCw9kFggCAQ8PFgIfCgUUUGF0aWVudCBldCBlbnRvdXJhZ2VkZAIDDw8WAh8KBQxTYXRpc2ZhY3Rpb25kZAIFDw8WAh8KBQJDSGRkAgcPDxYCHwkFGn4vUHJlbmRyZS1yZW5kZXotdm91cy8zLzc0ZBYCZg8PFgIfDgUZL2ltYWdlcy9EZWZhdWx0L0xvZ29zLmpwZ2RkAgwPZBYEZg8PFgIfCQUVL29mZnJlcy1kZS1zb2lucy81LzY1ZGQCAQ8PFgIfCQURL09mZnJlLXNvaW5zLzUvNTVkZAINDw8WAh8PZ2QWBAIBDw8WAh8KBQxTYXRpc2ZhY3Rpb25kZAIDD2QWCgIDDw8WAh8PaGQWAgIBDw8WAh8KZWRkAgUPDxYCHw9oZGQCBw9kFghmDw8WAh8KZWRkAgEPFgIfCwICFgRmD2QWBmYPFQEbY29sLXhzLTYgY29sLXNtLTQgY29sLW1kLTEyZAIBDw8WAh8JBRYvU2F0aXNmYWN0aW9uLzMvMzgvMTEwZBYEZg9kFgJmDxUBA0NIU2QCAQ8PFgYeB1Rvb2xUaXAFA0NIUx8OBSQvUmVzc291cmNlcy9MU1QvcGljdG9UcmFuc3BhcmVudC5wbmcfD2hkZAICDxUFAAAAAABkAgEPZBYGZg8VASljb2wteHMtNiBjb2wtc20tNCBjb2wtbWQtMTIgTGlzdGVTZWxlY3RlZGQCAQ8PFgIfCQUWL1NhdGlzZmFjdGlvbi8zLzM4LzExMWQWBGYPZBYCZg8VAQJDSGQCAQ8PFgYfEAUCQ0gfDgUkL1Jlc3NvdXJjZXMvTFNUL3BpY3RvVHJhbnNwYXJlbnQucG5nHw9oZGQCAg8VBSc8ZGl2IGNsYXNzPSdjbGVhcmZpeCB2aXNpYmxlLXhzJz48L2Rpdj4AAAAAZAICD2QWAgIBDw8WBB8KBR1BZmZpY2hlciB0b3V0ZXMgbGVzIHJ1YnJpcXVlcx8PaGRkAgMPDxYCHwoFwzw8ZGl2IGNsYXNzPSJwYW5lbC1ncm91cCIgaWQ9IjEiPg0KPGRpdiBjbGFzcz0icGFuZWwgcGFuZWwtZGVmYXVsdCI+DQo8ZGl2IGNsYXNzPSJwYW5lbC1oZWFkaW5nIj4NCjxoNCBjbGFzcz0icGFuZWwtdGl0bGUiPjxhIGNsYXNzPSJjb2xsYXBzZWQiIGRhdGEtcGFyZW50PSIjMSIgZGF0YS10b2dnbGU9ImNvbGxhcHNlIiBocmVmPSIjODk0MzIyMjA3Ij5FbnF1JmVjaXJjO3RlIGRlIHNhdGlzZmFjdGlvbiBhdSBDSFM8L2E+PC9oND4NCjwvZGl2Pg0KDQo8ZGl2IGNsYXNzPSJwYW5lbC1jb2xsYXBzZSBjb2xsYXBzZSIgaWQ9Ijg5NDMyMjIwNyI+DQo8ZGl2IGNsYXNzPSJwYW5lbC1ib2R5Ij4NCjxoMz5Mb3JzIGRlIHZvdHJlIHMmZWFjdXRlO2pvdXI8L2gzPg0KDQo8cD5QYXJ0aWNpcGV6ICZhZ3JhdmU7IGwmcnNxdW87YW0mZWFjdXRlO2xpb3JhdGlvbiBkZXMgcHJpc2VzIGVuIGNoYXJnZSBlbiByZW1wbGlzc2FudCBsZSBxdWVzdGlvbm5haXJlIGRlIHNhdGlzZmFjdGlvbi48L3A+DQoNCjxwPkxlIHF1ZXN0aW9ubmFpcmUgZGUgc2F0aXNmYWN0aW9uIHZvdXMgc2VyYSByZW1pcyBkYW5zIGxlIHNlcnZpY2UuIE4mcnNxdW87aCZlYWN1dGU7c2l0ZXogcGFzICZhZ3JhdmU7IGxlIGRlbWFuZGVyIHNpIHRlbCBuJnJzcXVvO2VzdCBwYXMgbGUgY2FzLiBRdWUgdm91cyBzb3lleiBzYXRpc2ZhaXRzIG91IG5vbiwgaWwgZXN0IGltcG9ydGFudCBxdWUgbm91cyBsZSBzYWNoaW9ucy48L3A+DQoNCjxwPkxlIHF1ZXN0aW9ubmFpcmUgZGUgc2F0aXNmYWN0aW9uIHBldXQgJmVjaXJjO3RyZSByZXRvdXJuJmVhY3V0ZTsgOjwvcD4NCg0KPHVsPg0KCTxsaT5BIGwmcnNxdW87aW5maXJtaSZlZ3JhdmU7cmUgb3UgYXUgY2FkcmUgZGUgc2FudCZlYWN1dGU7IDs8L2xpPg0KCTxsaT5EYW5zIGxhIGJvJmljaXJjO3RlIGF1eCBsZXR0cmVzIGRlc3RpbiZlYWN1dGU7ZSBhdSBjb3VycmllciBkYW5zIGxlcyBoYWxscyBkJnJzcXVvO2FjY3VlaWwgb3UgJmFncmF2ZTsgbCZyc3F1bztlbnRyJmVhY3V0ZTtlIGRlcyBzZXJ2aWNlcyA7PC9saT4NCgk8bGk+QXUgRGlyZWN0ZXVyIGR1IENIIGRlIFNhcnJlZ3VlbWluZXMgZW4gbCZyc3F1bzthZHJlc3NhbnQgcGFyIHZvaWUgcG9zdGFsZS48L2xpPg0KPC91bD4NCg0KPGgzPkRlIHJldG91ciBjaGV6IHZvdXMgYXByJmVncmF2ZTtzIHVuZSBob3NwaXRhbGlzYXRpb24mbmJzcDs8L2gzPg0KDQo8cD5Wb3VzICZlY2lyYzt0ZXMgJmVhY3V0ZTtnYWxlbWVudCBpbnZpdCZlYWN1dGU7cyAmYWdyYXZlOyByZW1wbGlyIGwmcnNxdW87ZW5xdSZlY2lyYzt0ZSBkZSBzYXRpc2ZhY3Rpb24gZW4gbGlnbmUgZHUgTWluaXN0JmVncmF2ZTtyZSBkZSBsYSBzYW50JmVhY3V0ZTsuPGJyIC8+DQo8YnIgLz4NCjxzdHJvbmc+LyAhIFw8L3N0cm9uZz4gUG91ciBwb3V2b2lyIHkgcGFydGljaXBlciwgaWwgZmF1dCBxdWUgdm91cyBheWV6IGFjY2VwdCZlYWN1dGU7IGRlIGRvbm5lciB1bmUgYWRyZXNzZSBlLW1haWwgdmFsYWJsZSBsb3JzIGRlIHZvdHJlIGFkbWlzc2lvbiBwb3VyIHJlY2V2b2lyIGxlIGxpZW4gZGUgbCZyc3F1bztlbnF1JmVjaXJjO3RlLjxiciAvPg0KPGJyIC8+DQo8YSBocmVmPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD90aW1lX2NvbnRpbnVlPTImYW1wO3Y9VmsyZWZkczJCdjgmYW1wO2ZlYXR1cmU9ZW1iX2xvZ28iIHRhcmdldD0iX2JsYW5rIj5odHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD90aW1lX2NvbnRpbnVlPTImYW1wO3Y9VmsyZWZkczJCdjgmYW1wO2ZlYXR1cmU9ZW1iX2xvZ28gPC9hPjwvcD4NCjwvZGl2Pg0KPC9kaXY+DQo8L2Rpdj4NCg0KPGRpdiBjbGFzcz0icGFuZWwgcGFuZWwtZGVmYXVsdCI+DQo8ZGl2IGNsYXNzPSJwYW5lbC1oZWFkaW5nIj4NCjxoNCBjbGFzcz0icGFuZWwtdGl0bGUiPjxhIGNsYXNzPSJjb2xsYXBzZWQiIGRhdGEtcGFyZW50PSIjMSIgZGF0YS10b2dnbGU9ImNvbGxhcHNlIiBocmVmPSIjNzQ5NDQ4NjY1Ij5SJmVhY3V0ZTtjbGFtYXRpb25zLCBzdWdnZXN0aW9ucywgcmVtZXJjaWVtZW50cyBDSFM8L2E+PC9oND4NCjwvZGl2Pg0KDQo8ZGl2IGNsYXNzPSJwYW5lbC1jb2xsYXBzZSBjb2xsYXBzZSIgaWQ9Ijc0OTQ0ODY2NSI+DQo8ZGl2IGNsYXNzPSJwYW5lbC1ib2R5Ij4NCjxwPjxzdHJvbmc+QSBjJm9jaXJjO3QmZWFjdXRlOyBkdSBxdWVzdGlvbm5haXJlIGRlIHNhdGlzZmFjdGlvbiBldCBkZXMgJmVhY3V0ZTtjaGFuZ2VzIHF1ZSB2b3VzIGF1cmV6IGF2ZWMgbGUgcGVyc29ubmVsLCB2b3VzIGRpc3Bvc2V6IGRlIHBsdXNpZXVycyBwb3NzaWJpbGl0JmVhY3V0ZTtzIHBvdXIgdm91cyBleHByaW1lciZuYnNwOzogPC9zdHJvbmc+PC9wPg0KDQo8dWw+DQoJPGxpPjxzdHJvbmc+RW4gZGVtYW5kYW50ICZhZ3JhdmU7IHJlbmNvbnRyZXIgbGUgbSZlYWN1dGU7ZGVjaW4gZXQgbGUgY2FkcmUgZGUgc2FudCZlYWN1dGU7IGR1IHNlcnZpY2U8L3N0cm9uZz48L2xpPg0KCTxsaT48c3Ryb25nPkVuIGNvbnRhY3RhbnQgbGEgcGVyc29ubmUgY2hhcmcmZWFjdXRlO2UgZGVzIHJlbGF0aW9ucyBhdmVjIGxlcyB1c2FnZXJzIHF1aSB2b3VzIGFwcG9ydGVyYSBkZXMgJmVhY3V0ZTtsJmVhY3V0ZTttZW50cyBkZSByJmVhY3V0ZTtwb25zZSAmYWdyYXZlOyB2b3MgcmVtYXJxdWVzIG91IGdyaWVmcyBldCBwb3VycmEgdm91cyBvcmllbnRlciB2ZXJzIGxlcyBpbnRlcmxvY3V0ZXVycyBhcHByb3ByaSZlYWN1dGU7cyAmYWdyYXZlOyB2b3RyZSBkZW1hbmRlLjwvc3Ryb25nPjwvbGk+DQoJPGxpPjxzdHJvbmc+RW4gZGVtYW5kYW50ICZhZ3JhdmU7IHJlbmNvbnRyZXIgdW4gcmVwciZlYWN1dGU7c2VudGFudCBkZXMgdXNhZ2VycyBvdSB1biBtJmVhY3V0ZTtkaWF0ZXVyIGRlIGxhIENvbW1pc3Npb24gZGVzIFVzYWdlcnM8L3N0cm9uZz48L2xpPg0KPC91bD4NCg0KPGgzPlJlbmNvbnRyZXIgbGEgcGVyc29ubmUgY2hhcmcmZWFjdXRlO2UgZGVzIHJlbGF0aW9ucyBhdmVjIGxlcyB1c2FnZXJzPC9oMz4NCg0KPHA+U2kgdm91cyBuJiMzOTsmZWNpcmM7dGVzIHBhcyBzYXRpc2ZhaXQgZGUgdm90cmUgcHJpc2UgZW4gY2hhcmdlLCBub3VzIHZvdXMgaW52aXRvbnMgJmFncmF2ZTsgdm91cyBhZHJlc3NlciAmYWdyYXZlOyBsJiMzOTtlbmNhZHJlbWVudCBkdSBvdSBkZXMgc2VydmljZShzKSBjb25jZXJuJmVhY3V0ZTsocykuIFNpIGNldHRlIGQmZWFjdXRlO21hcmNoZSBuZSB2b3VzIGFwcG9ydGUgcGFzIHNhdGlzZmFjdGlvbiwgdm91cyBwb3V2ZXogZGVtYW5kZXIgJmFncmF2ZTsgcmVuY29udHJlciBsYSBwZXJzb25uZSBjaGFyZyZlYWN1dGU7ZSBkZXMgcmVsYXRpb25zIGF2ZWMgbGVzIHVzYWdlcnMsIGF1IGImYWNpcmM7dGltZW50IGFkbWluaXN0cmF0aWYsIGF1IG5pdmVhdSBkdSBzZXJ2aWNlIGRlcyBhZG1pc3Npb25zLiBDZXR0ZSBwZXJzb25uZSB2b3VzIGFwcG9ydGVyYSBkZXMgJmVhY3V0ZTtsJmVhY3V0ZTttZW50cyBkZSByJmVhY3V0ZTtwb25zZSAmYWdyYXZlOyB2b3MgcmVtYXJxdWVzIG91IGdyaWVmcyBldCBwb3VycmEgdm91cyBvcmllbnRlciB2ZXJzIGxlcyBpbnRlcmxvY3V0ZXVycyBhcHByb3ByaSZlYWN1dGU7cyAmYWdyYXZlOyB2b3RyZSBkZW1hbmRlLjwvcD4NCg0KPHA+Vm91cyBhdmV6IGF1c3NpIGxhIHBvc3NpYmlsaXQmZWFjdXRlOyBkZSByZW5jb250cmVyIHVuIFJlcHImZWFjdXRlO3NlbnRhbnQgZGVzIFVzYWdlcnMgYWluc2kgcXUmIzM5O3VuIE0mZWFjdXRlO2RpYXRldXIgZGUgbGEgQ29tbWlzc2lvbiBkZXMgVXNhZ2Vycy48L3A+DQoNCjxwPkxlIHImb2NpcmM7bGUgZHUgbSZlYWN1dGU7ZGlhdGV1ciBlc3QgZGUgdm91cyAmZWFjdXRlO2NvdXRlciwgZGUgdm91cyBhcHBvcnRlciB1biBjb21wbCZlYWN1dGU7bWVudCBkJiMzOTtpbmZvcm1hdGlvbiBldCBkZSB2b3VzIGFjY29tcGFnbmVyLiBMZXMgbSZlYWN1dGU7ZGlhdGV1cnMgc29udCBkZXMgcHJvZmVzc2lvbm5lbHMgZHUgQ0hTIGRlIFNhcnJlZ3VlbWluZXMgbmUgZmFpc2FudCBwYXMgcGFydGllIGRlcyBzZXJ2aWNlcyBkZSBzb2lucyBvJnVncmF2ZTsgYSBldSBsaWV1IGxhIHByaXNlIGVuIGNoYXJnZS4gTGEgbSZlYWN1dGU7ZGlhdGlvbiByZXBvc2Ugc3VyIGxhIGNvbmZpZGVudGlhbGl0JmVhY3V0ZTsgZGVzICZlYWN1dGU7Y2hhbmdlcywgbGEgbmV1dHJhbGl0JmVhY3V0ZTssIGwmIzM5O2luZCZlYWN1dGU7cGVuZGFuY2UgZXQgbCYjMzk7aW1wYXJ0aWFsaXQmZWFjdXRlOyBkZXMgbSZlYWN1dGU7ZGlhdGV1cnMuPC9wPg0KDQo8cD4mbmJzcDs8L3A+DQoNCjxoMz5Db250YWN0ZXIgbGUgQ2hhcmcmZWFjdXRlOyBkZXMgUmVsYXRpb25zIGF2ZWMgbGVzIFVzYWdlcnM8L2gzPg0KDQo8dWw+DQoJPGxpPlBhciBjb3VycmllciZuYnNwOzombmJzcDs8L2xpPg0KPC91bD4NCg0KPHAgYWxpZ249ImNlbnRlciI+PGVtPkNIJm5ic3A7ZGUgU2FycmVndWVtaW5lcywgcmVsYXRpb25zIGF2ZWMgbGVzIHVzYWdlcnMsPC9lbT48YnIgLz4NCjxlbT4yIFJ1ZSBSZW4mZWFjdXRlOyBGcmFuJmNjZWRpbDtvaXMgSm9sbHk8YnIgLz4NCkJQIDUwMDI1IDU3MjExIFNhcnJlZ3VlbWluZXMgQ2VkZXg8L2VtPjwvcD4NCg0KPHVsPg0KCTxsaT5QYXIgbWFpbCZuYnNwOzogWFhYPC9saT4NCjwvdWw+DQoNCjxwPiZuYnNwOzwvcD4NCg0KPGgzPkxhIENvbW1pc3Npb24gZGVzIFVzYWdlcnMgKENEVSk8L2gzPg0KDQo8cD5MYSBsb2kgZHUgNCBtYXJzIDIwMDIgZXQgbGUgZCZlYWN1dGU7Y3JldCBuJmRlZzsyMDA1LTIxMyBkdSAyIG1hcnMgMjAwNSBvbnQgaW5zdGF1ciZlYWN1dGU7IGxhIGNyJmVhY3V0ZTthdGlvbiwgZGFucyBjaGFxdWUgJmVhY3V0ZTt0YWJsaXNzZW1lbnQgZGUgc2FudCZlYWN1dGU7IHB1YmxpYyBvdSBwcml2JmVhY3V0ZTssIGQmIzM5O3VuZSBjb21taXNzaW9uIGRlcyB1c2FnZXJzLjwvcD4NCg0KPHA+RWxsZSBhIHBvdXIgbWlzc2lvbiBkZSB2ZWlsbGVyIGF1IHJlc3BlY3QgZGVzIGRyb2l0cyBkZXMgdXNhZ2VycywgZGUgZmFjaWxpdGVyIGxldXJzIGQmZWFjdXRlO21hcmNoZXMgZXQgZGUgY29udHJpYnVlciAmYWdyYXZlOyBsJiMzOTthbSZlYWN1dGU7bGlvcmF0aW9uIGRlIGxhIHByaXNlIGVuIGNoYXJnZSBkZXMgcGF0aWVudHMgZW4gYXNzb2NpYW50IGxlcyByZXByJmVhY3V0ZTtzZW50YW50cyBkZXMgdXNhZ2Vycy48L3A+DQoNCjxwPkwmIzM5O2Vuc2VtYmxlIGRlcyByJmVhY3V0ZTtjbGFtYXRpb25zIGFkcmVzcyZlYWN1dGU7ZXMgJmFncmF2ZTsgbCYjMzk7JmVhY3V0ZTt0YWJsaXNzZW1lbnQgZGUgc2FudCZlYWN1dGU7IHBhciBsZXMgdXNhZ2VycyBvdSBsZXMgcHJvY2hlcyBhaW5zaSBxdWUgbGVzIHImZWFjdXRlO3BvbnNlcyBhcHBvcnQmZWFjdXRlO2VzIHBhciBsZXMgcmVzcG9uc2FibGVzIGRlIGwmIzM5OyZlYWN1dGU7dGFibGlzc2VtZW50IHNvbnQgJmFncmF2ZTsgbGEgZGlzcG9zaXRpb24gZGVzIG1lbWJyZXMgZGUgbGEgY29tbWlzc2lvbi4gRWxsZSBkb2l0IHBlcm1ldHRyZSBkZXMgbW9kYWxpdCZlYWN1dGU7cyBkZSByJmVncmF2ZTtnbGVtZW50IGRlcyBsaXRpZ2VzIGNlbnRyJmVhY3V0ZTtzIHN1ciBsZSBkaWFsb2d1ZSBhdmVjIGxlcyB1c2FnZXJzIGdyJmFjaXJjO2NlICZhZ3JhdmU7IGwmcnNxdW87aW50ZXJ2ZW50aW9uIGRlIGRldXggbSZlYWN1dGU7ZGlhdGV1cnMgOiBsZSBtJmVhY3V0ZTtkaWF0ZXVyIG0mZWFjdXRlO2RlY2luIGV0IGxlIG0mZWFjdXRlO2RpYXRldXIgbm9uIG0mZWFjdXRlO2RlY2luLjwvcD4NCg0KPHA+TGVzIGluZm9ybWF0aW9ucyByZWxhdGl2ZXMgJmFncmF2ZTsgbGEgcG9saXRpcXVlIGQmIzM5O2FjY3VlaWwgZXQgZGUgcHJpc2UgZW4gY2hhcmdlIGRlcyBwZXJzb25uZXMgbWFsYWRlcyBldCBkZSBsZXVycyBwcm9jaGVzIGRvaXZlbnQgJmVhY3V0ZTtnYWxlbWVudCBsdWkgJmVjaXJjO3RyZSBjb21tdW5pcXUmZWFjdXRlO2VzLiBBIHBhcnRpciBkZSBjZXMgaW5mb3JtYXRpb25zLCBsYSBDb21taXNzaW9uIGRlcyBVc2FnZXJzJm5ic3A7IHByb2MmZWdyYXZlO2RlICZhZ3JhdmU7IHVuZSBhcHByJmVhY3V0ZTtjaWF0aW9uIGRlcyBwcmF0aXF1ZXMgZGVzICZlYWN1dGU7dGFibGlzc2VtZW50cyBldCBmb3JtdWxlIGRlcyByZWNvbW1hbmRhdGlvbnMuPC9wPg0KDQo8cD5Ub3VzIGxlcyBhbnMsIGxhIENvbW1pc3Npb24gZGVzIFVzYWdlcnMgciZlYWN1dGU7ZGlnZSB1biByYXBwb3J0IHNvdW1pcyAmYWdyYXZlOyBsYSBkJmVhY3V0ZTtsaWImZWFjdXRlO3JhdGlvbiBkdSBDb25zZWlsIGRlIHN1cnZlaWxsYW5jZSBldCB0cmFuc21pcyAmYWdyYXZlOyBsJiMzOTtBZ2VuY2UgUiZlYWN1dGU7Z2lvbmFsZSBkZSBTYW50JmVhY3V0ZTsuPC9wPg0KDQo8cD4mbmJzcDs8L3A+DQoNCjxoMz5MZSBSZXByJmVhY3V0ZTtzZW50YW50IGRlcyBVc2FnZXJzPC9oMz4NCg0KPHA+TGUgcmVwciZlYWN1dGU7c2VudGFudCBkZXMgdXNhZ2VycyBlc3QgbGUgJmxhcXVvOyBwb3J0ZS1wYXJvbGUgJnJhcXVvOyBkZXMgcGF0aWVudHMgZXQgZGUgbGV1cnMgcHJvY2hlcyBkYW5zIGxlcyBpbnN0YW5jZXMgZGUgbCYjMzk7aCZvY2lyYztwaXRhbCBvJnVncmF2ZTsgaWwgYSB1biBtYW5kYXQuIEMmIzM5O2VzdCB1biBiJmVhY3V0ZTtuJmVhY3V0ZTt2b2xlIGQmIzM5O2Fzc29jaWF0aW9uIGRlIHNhbnQmZWFjdXRlOywgcXVpIGEgcmUmY2NlZGlsO3UgdW4gYWdyJmVhY3V0ZTttZW50IHNhbnQmZWFjdXRlOyBwYXIgdW5lIGNvbW1pc3Npb24gbmF0aW9uYWxlLjwvcD4NCg0KPHA+TGUgcmVwciZlYWN1dGU7c2VudGFudCBlc3QgZCZlYWN1dGU7c2lnbiZlYWN1dGU7IHBvdXIgcmVwciZlYWN1dGU7c2VudGVyIDx1PnRvdXM8L3U+IGxlcyB1c2FnZXJzIGQmIzM5O3VuICZlYWN1dGU7dGFibGlzc2VtZW50IGRlIHNhbnQmZWFjdXRlOy4gSWwgZmFjaWxpdGUgbCYjMzk7ZXhwcmVzc2lvbiBkZXMgbWFsYWRlcywgZmF2b3Jpc2UgbGUgZGlhbG9ndWUgZXQgbCYjMzk7JmVhY3V0ZTtjaGFuZ2UgYXZlYyBsZXMgcHJvZmVzc2lvbm5lbHMgZGUgc2FudCZlYWN1dGU7LjwvcD4NCg0KPHA+Jm5ic3A7PC9wPg0KDQo8ZGl2IGNsYXNzPSJlbmNhZHJlX0JvcmR1cmVWZXJ0Rm9uY2UiPkxlIHJlcHImZWFjdXRlO3NlbnRhbnQgZGVzIHVzYWdlcnMgZXN0IHVuIGImZWFjdXRlO24mZWFjdXRlO3ZvbGUsIG1lbWJyZSBkJiMzOTt1bmUgYXNzb2NpYXRpb24gZGUgc2FudCZlYWN1dGU7IGFnciZlYWN1dGU7JmVhY3V0ZTtlLjxiciAvPg0KSWwgZXN0IGQmZWFjdXRlO3NpZ24mZWFjdXRlOyBwYXIgc29uIGFzc29jaWF0aW9uIHBvdXIgcmVwciZlYWN1dGU7c2VudGVyIHRvdXMgbGVzIHVzYWdlcnMgZHUgc3lzdCZlZ3JhdmU7bWUgZGUgc2FudCZlYWN1dGU7LCBkYW5zIGxlcyBpbnN0YW5jZXMgZCYjMzk7dW4gJmVhY3V0ZTt0YWJsaXNzZW1lbnQgZGUgc2FudCZlYWN1dGU7IChDb25zZWlsIGRlIFN1cnZlaWxsYW5jZSwgQ0RVLCBDTElOKS48YnIgLz4NCklsIGVzdCBjaGFyZyZlYWN1dGU7IGRlIGZhaXJlIGxlIGxpZW4gZW50cmUgbGVzIHVzYWdlcnMsIGxlcyBwcm9mZXNzaW9ubmVscyBkZSBzYW50JmVhY3V0ZTsgZXQgbGEgZGlyZWN0aW9uIGRlIGwmIzM5OyZlYWN1dGU7dGFibGlzc2VtZW50LjwvZGl2Pg0KDQo8cD4mbmJzcDs8L3A+DQoNCjxoMz5Db250YWN0ZXIgdW4gUmVwciZlYWN1dGU7c2VudGFudCBkZXMgVXNhZ2VyczwvaDM+DQoNCjxoMz4mbmJzcDs8L2gzPg0KPC9kaXY+DQo8L2Rpdj4NCjwvZGl2Pg0KDQo8cD4mbmJzcDs8L3A+DQo8L2Rpdj4NCg0KPHA+Jm5ic3A7PC9wPg0KZGQCCQ9kFgICAQ8PFgQfCgUYQWZmaWNoZXIgcGFyIHRow6ltYXRpcXVlHw9oZGQCCw8PFgIfCmVkZAIPDw8WBB8KBQxGQUlSRSBVTiBET04fCQUJfi9ET04vMi82ZGQCEA8PFgQfCgUOTm91cyBjb250YWN0ZXIfCQUOfi9Db250YWN0LzEwLzdkZAIRDw8WBB8KBQ1Db21tdW5pY2F0aW9uHwkFEH4vYWN0dWFsaXRlcy8xLzFkZAISDw8WBB8KBQxQbGFuIGR1IHNpdGUfCQURfi9QbGFuLXNpdGUvMTYvMTdkZAITDw8WBB8KBRFNZW50aW9ucyBsw6lnYWxlcx8JBRd+L01lbnRpb25zLWxlZ2FsZXMvMi8xOGRkAhQPDxYCHw9oZGQCFQ9kFgICBQ8PFgIfCQUeL01lbnRpb25zLWxlZ2FsZXMvMi8xOCNDb29raWVzZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgMFDmN0bDAwJElCQU1vaW5zBQljdGwwMCRJQkEFDWN0bDAwJElCQVBsdXMnmdJhgH22Lq+MYNXdWQGepAhlZSt95YknWPMMjpn9eQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="../../../WebResourcebcc9.js?d=9cAV11wUu06OHi1K-AW_fgHb9FE3w-PlHtUoWuRge30U5iZwftlCl_Y-jF3AHUms7KQjcp9fln6bGf9LO_6G1sStd0V93XWHzGmeXY-DtvA1&amp;t=637110284437816177" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"fr-FR","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"€","NaNSymbol":"Non numérique","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infini","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"+Infini","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"/","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"dddd d MMMM yyyy HH:mm:ss","LongDatePattern":"dddd d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd/MM/yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],"ShortestDayNames":["di","lu","ma","me","je","ve","sa"],"DayNames":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"AbbreviatedMonthNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],"IsReadOnly":true,"NativeCalendarName":"calendrier grégorien","AbbreviatedMonthGenitiveNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthGenitiveNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""]},"eras":[1,"ap. J.-C.",null,0]};//]]>
+</script>
+
+<script src="../../../ScriptResource7d10.js?d=1z6J2j_mXp0nz1DoNxCyWxVp49prDP0hzhZK9tQDNhJ_XtntM5ofbpOPl_y4WSnJkz8xuxKGfSCwm2F-VJnyZ8N0tqQFzdBhm0fIoIN6Ypiypp5GuohBou6dCmKYfLKKTBc9_ptYV__IyJeUUHZfNg2&amp;t=ffffffffe3663df5" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="../../../ScriptResource7fe4.js?d=lj-HLEmHQXhTPi-OLl3kMfyVl30vq80wr-Ps19Zw_TYZ3X3hzJjfcBNa_Lkm0nWT2oE8qw3Jcv_XEx2FLZfiwaCvoFOlKGOdAmOZJRZH1HPV6wUN181YrwnlWnviB7jw-nEw-DAkw50FHcLmfdheHQ2&amp;t=ffffffffe3663df5" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="443BCE32" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACS+Lx3l84Wx7py9cnD7ccksP1d30CdA/K+RbFANGac6SHS5DlgAGHjTW68QgQ8yQ/7Io453NsjPVbV8aOKW+jle6ffEg66icLvGqkvjALpN6jLueDF8GIrHZhJQzmzxYYaWIJnTfhvfwo9ztxUJcHbxK5xLJM5p3J6Z/qky8jQyIlJ6A9WNGWcXDY3+HeuxaYppsq5V7tk9D5V0Z+RiAFLysWKW7miXAmVQUvTxzCNDDnZgAK6f4tszm56dXCac3+7H3P2PX4vl/0IkeGGByu2bH4uL6PhInH5YQBc3Z8bQD75r5hzkOYoXPnJoIr4XwUOUgC/7pHRRYpQClGpBqaSzKehgVc6G1t6bb1j2Y0+BcLTTscBSjh6nMOVR3YKry269RqfYxd/A9eeCFTVVlxOgdqfkZZYER0iVO8FSA0jO1Sg+YKrMLzef8Cpjh9ueiCogestBg5Qi9cLDGt1m71yxUJw+G73SWltj7m4Cuju9NbmM91W/fQ11ESMENyv2cruofQ7gliA0u3jRlfxm/QMvyur4tZ0R3KvNUf+y9i9BmewcIu3xvvwUe5F3ZrIZ3FuOXi8spkW8cMnoLBzNKuiIMsAw9vDbAa4hmZefAzQeQaqf5TFdILagNgnwCwZiOw9azGL9CcqmkTVVdZ9M6ZX3xq4VXjRPFw23fz5DBTHCWT04IpDlnhurthRJ05snui8i9HEovXJeKdzI5XclDDHHSFIdUPi+4d1kn5JyG7zd2Obd5knjk7ELyGVyvfHDJIVeuRf5xC/8SOU8h+6bwHPkd5/UiLfWZc2BO8Qud1LEtg==" />
+</div>	
+		<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div id="Page" class="PageDefault Portail2 Module38 Appli3 Item1">
+            <div id="haut" class="LargeurTotale">
+                <div id="HautMenu">
+                    <div id="Header">
+                        <div id="HautDroite">
+                            <div class="LargeurMax">
+                                <div class="BlocLogo">
+                                    <a href="../../../accueil.html">
+											<img id="IMGLogoMenu" src="../../../images/default/logos_h70.jpg"
+                                            border="0" />
+											<!--<img id="IMGLogoMenu" src="/images/default/Logo_Octobre_Rose.png"
+                                            border="0" />-->
+										
+                                    </a>
+                                </div>
+                                <h1>Hôpitaux de Sarreguemines</h1>								
+								<div id="BlocRecherche">
+									<div onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ValiderRecherche&#39;)" style="position: relative;float:left;width:100%;padding:0;">
+	
+									<input name="ctl00$inputGroup" id="ctl00_inputGroup" type="text" class="form-control" placeholder="Recherche" style="position: relative;float:right;display:inline-block;height:32px;" />
+									<a id="ctl00_ValiderRecherche" href="javascript:__doPostBack(&#39;ctl00$ValiderRecherche&#39;,&#39;&#39;)" style="position: relative;float:right;display:inline-block;"><i class="fas fa-search SearchIcon"></i></a>							
+										
+										
+									
+</div>
+								</div>
+                                <a id="ctl00_HLUrgences" href="../../../urgences/2/64.html">
+                                <div class="Urgences" style="padding:10px;">
+                                    <!--<img src="/images/default/urgences.png"
+                                            border="0" />-->
+											<!--<img class="fas fa-bell fa-2x">-->
+											 <div style="color:#ffffff;    font-size: 16px;"> Urgences</div>
+                                    
+                                </div>
+									</a>
+                                <a id="ctl00_HLConsultationMedecin" href="../../../Rendez-vous-en-ligne/2/30.html">
+                                <div class="ConsultationMedecin">
+                                    <i class="fas fa-user-md fa-3x"></i>
+                                   <div style="color:#ffffff;   font-weight:bold; font-size: 17px;"> Prendre un <br>rendez-vous</div>
+                                </div>
+									</a>
+                                
+
+
+                        </div>
+                            </div>
+                        <div id="BandeauMenu">
+                        <div class="LargeurMax">
+                            <div id="BandeauMenuContenu">
+								<div class="BlocTel">								
+								<i class="fas fa-phone"></i><b>CHS</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;98&nbsp;00 
+								-
+								<b>R.&nbsp;PAX</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;33&nbsp;10
+								-
+								<b>ST&nbsp;JOSEPH</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;98&nbsp;76&nbsp;00 
+								</div>
+                                <div id="Menu">
+                                    
+                                            <div id="Portail8" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(8);'
+                                                onmouseout='javascript:PortailOut(8);'>
+                                                <div class='PortailLien'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl00_HLPortail" class="PortailLien" href="../../../Offre-de-soins/2/68.html">Offre de soins
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl00$HFPortail" id="ctl00_RepeaterPortail_ctl00_HFPortail" value="8" />
+
+                                                    <div id="CadreModule8" class='Cache'>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div id="Portail2" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(2);'
+                                                onmouseout='javascript:PortailOut(2);'>
+                                                <div class='PortailLienOver'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl01_HLPortail" class="PortailLien">Patient et entourage
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl01$HFPortail" id="ctl00_RepeaterPortail_ctl01_HFPortail" value="2" />
+
+                                                    <div id="CadreModule2" class='Cache'>
+                                                        
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(75);'
+                                                                    onmouseout='javascript:CacheSousModule(75);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl00$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl00_HFModule" value="75" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl00_HLModule" class="ModuleLien" href="../../../Consultations/3/75/116.html">Consultation</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_75' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(57);'
+                                                                    onmouseout='javascript:CacheSousModule(57);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl01$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl01_HFModule" value="57" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl01_HLModule" class="ModuleLien" href="../../../Hospitalisation/3/57/78.html">Hospitalisation</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_57' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(77);'
+                                                                    onmouseout='javascript:CacheSousModule(77);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl02$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl02_HFModule" value="77" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl02_HLModule" class="ModuleLien" href="../../../Visiter-un-proche/3/77/121.html">Rendre visite à un proche</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_77' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(37);'
+                                                                    onmouseout='javascript:CacheSousModule(37);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl03$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl03_HFModule" value="37" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl03_HLModule" class="ModuleLien" href="../../../r%c3%a8glementation/2/37.html">REGLEMENTATION</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_37' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModuleOver'
+                                                                    onmouseover='javascript:AfficheSousModule(38);'
+                                                                    onmouseout='javascript:CacheSousModule(38);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl04$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl04_HFModule" value="38" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl04_HLModule" class="ModuleLien" href="110.html">Satisfaction</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_38' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div id="Portail7" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(7);'
+                                                onmouseout='javascript:PortailOut(7);'>
+                                                <div class='PortailLien'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl02_HLPortail" class="PortailLien">Professionnels
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl02$HFPortail" id="ctl00_RepeaterPortail_ctl02_HFPortail" value="7" />
+
+                                                    <div id="CadreModule7" class='Cache'>
+                                                        
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(89);'
+                                                                    onmouseout='javascript:CacheSousModule(89);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl00$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl00_HFModule" value="89" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl00_HLModule" class="ModuleLien" href="../../../comite-ethique/2/89.html">Comité Ethique</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_89' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(95);'
+                                                                    onmouseout='javascript:CacheSousModule(95);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl01$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl01_HFModule" value="95" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl01_HLModule" class="ModuleLien" href="../../../pepiniere-d-entreprise-e-sante-ccdl/3/95/147.html">Pépinière d'entreprise E-santé CCDL</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_95' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(31);'
+                                                                    onmouseout='javascript:CacheSousModule(31);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl02$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl02_HFModule" value="31" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl02_HLModule" class="ModuleLien" href="../../../Professionnels-de-sante/3/31/50.html">Professionnels de santé</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_31' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(32);'
+                                                                    onmouseout='javascript:CacheSousModule(32);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl03$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl03_HFModule" value="32" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl03_HLModule" class="ModuleLien" href="../../../Emploi/7/32.html">Offres d'emploi</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_32' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(88);'
+                                                                    onmouseout='javascript:CacheSousModule(88);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl04$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl04_HFModule" value="88" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl04_HLModule" class="ModuleLien" href="../../../signalement-des-violences-et-du-harcelement/2/88.html">Signalement des violences et du harcèlement</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_88' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(34);'
+                                                                    onmouseout='javascript:CacheSousModule(34);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl05$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl05_HFModule" value="34" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl05_HLModule" class="ModuleLien" href="../../../Fournisseurs/3/34/47.html">Achats, fournisseurs</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_34' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="HautTrait">
+                    <div id="LogoTrait">
+                        <a href="../../../accueil.html">
+                            <img id="IMGLogoTrait" src="../../../images/Default/logos_h70-2.jpg"
+                                border="0" /></a>
+                    </div>
+						<div class="BlocTel">								
+								<i class="fas fa-phone"></i><b>CHS</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;98&nbsp;00 
+								-
+								<b>R.&nbsp;PAX</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;33&nbsp;10
+								-
+								<b>ST&nbsp;JOSEPH</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;98&nbsp;76&nbsp;00 
+								</div>
+                    <div id="MenuTrait">
+                        <i class="fas fa-bars fa-2x" style="cursor: pointer;" onclick="javascript:AfficheCacheDiv('MenuPortable');"></i>
+                    </div>
+                </div>
+                <div id="MenuPortable" class="Cache">
+                    <div id="StructurePortable">
+                        
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../../Offre-de-soins/2/68.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl00_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl00$LinkButton1&#39;,&#39;&#39;)">OFFRE DE SOINS</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../../../erreur404.aspx/index.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl01_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$LinkButton1&#39;,&#39;&#39;)">PATIENT ET ENTOURAGE</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Consultations/3/75/116.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl00_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl00$LinkButton2&#39;,&#39;&#39;)">Consultation</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Hospitalisation/3/57/78.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl01_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl01$LinkButton2&#39;,&#39;&#39;)">Hospitalisation</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Visiter-un-proche/3/77/121.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl02_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl02$LinkButton2&#39;,&#39;&#39;)">Rendre visite à un proche</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../r%c3%a8glementation/2/37.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl03_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl03$LinkButton2&#39;,&#39;&#39;)">REGLEMENTATION</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="110.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl04_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl04$LinkButton2&#39;,&#39;&#39;)">Satisfaction</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../../Professionnels-de-sante/3/31/50.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl02_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$LinkButton1&#39;,&#39;&#39;)">PROFESSIONNELS</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../comite-ethique/2/89.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl00_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl00$LinkButton2&#39;,&#39;&#39;)">Comité Ethique</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../pepiniere-d-entreprise-e-sante-ccdl/3/95/147.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl01_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl01$LinkButton2&#39;,&#39;&#39;)">Pépinière d'entreprise E-santé CCDL</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Professionnels-de-sante/3/31/50.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl02_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl02$LinkButton2&#39;,&#39;&#39;)">Professionnels de santé</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Emploi/7/32.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl03_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl03$LinkButton2&#39;,&#39;&#39;)">Offres d'emploi</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../signalement-des-violences-et-du-harcelement/2/88.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl04_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl04$LinkButton2&#39;,&#39;&#39;)">Signalement des violences et du harcèlement</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../../Fournisseurs/3/34/47.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl05_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl05$LinkButton2&#39;,&#39;&#39;)">Achats, fournisseurs</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                    </div>
+                </div>
+            </div>
+            <div id="CentreImage" style='background: url(../../../Ressources/FTP/bandeau_module/Module_Def.jpg) no-repeat center center; -webkit-background-size: 100%; background-size: 100%;'>
+            </div>
+            <div id="BlocContenu">
+                <div id="Outils" class="LargeurMax">
+                    <div style="position: relative; width: auto; float: left;">
+                        <div style="position: relative; float: left; width: auto; margin: 8px 6px 0 15px;">
+                            <a href="../../../Accueil-2.html">
+                                <img src='../../../images/Default/Maison.png' border="0" /></a>
+                        </div>
+                        <div style="position: relative; float: right; margin-top: 8px; margin-right: 6px;">
+                            <a href="javascript:CallPrint()">
+                                <img src="../../../images/Default/print.png" border="0"
+                                    title="Imprimer le texte" />
+                            </a>
+                        </div>
+                        <div style="position: relative; float: right; margin-top: 12px; margin-right: 10px;">
+                            <input type="image" name="ctl00$IBAMoins" id="ctl00_IBAMoins" src="../../../images/Default/AMoins.png" style="border-width:0px;" />
+                            <input type="image" name="ctl00$IBA" id="ctl00_IBA" src="../../../images/Default/A.png" style="border-width:0px;" />
+                            <input type="image" name="ctl00$IBAPlus" id="ctl00_IBAPlus" src="../../../images/Default/APlus.png" style="border-width:0px;" />
+                        </div>
+                    </div>
+                </div>
+                <div id="BlocFilAriane" class="LargeurMax">
+                    <div id="ctl00_PanFilDAriane">
+	
+                    
+</div>
+                </div>
+                <div id="Contenu" class="row LargeurMax">
+                    <div id="Gauche" class="col-xs-12">
+                        
+                        
+                        <div id="ctl00_PanEnteteListe">
+	                            
+                            <div class="EnteteEtablissementListe">
+                                <div class="Bandeau col-md-12">
+                                    <div class="BandeauHaut">
+                                        <span id="ctl00_LabEntetePortail" class="Portail">Patient et entourage</span>
+										<div class="Module" >		
+											<span id="ctl00_LabEnteteModule" class="LabModule">Satisfaction</span>	
+											
+										<div class="ListeItem" >		
+											<span id="ctl00_LabEnteteListeItem">CH</span>
+											</div>
+											
+										</div>
+                                    </div>
+
+
+                                </div>
+								
+                                <div class="Logo col-md-2">
+								
+								<a id="ctl00_HLLogo" href="../../../../erreur404.aspx/index.html"><img id="ctl00_ILogoListe" src="../../../images/Default/Logos-2.jpg" style="border-width:0px;" /></a>
+                                </div>
+                            </div>
+                        
+</div>
+
+                        <div id="ctl00_PanOffresdeSoins">
+	  
+							<div class="LargeurMax">
+								<!-- Image Map Generated by http://www.image-map.net/ -->
+								<img src="../../../images/Default/OFFRE-DE-SOINS-2023-min.jpg" style="width:100%;margin:30px auto;" alt="" usemap="#image-map">
+								<map name="image-map">
+									<area alt="Offre de soin du Centre Hospitalier spécialisé de Sarreguemines" href='../../../offres-de-soins/5/65.html' coords="1,1,451,612" shape="rect">
+									<area alt="Offre de soin de l'Hôpital Robert-Pax" href='../../../Offre-soins/5/55.html' coords="468,1,904,612" shape="rect">
+									<area alt="Offre de soin de l'Hôpital St-Joseph" href='../../../Offre-soins/5/55.html' coords="947,1,1399,612" shape="rect">
+								</map>
+								<!--<a id="ctl00_HLODS_CHS" href="/offres-de-soins/5/65">
+								<div class="ODS_CHS col-md-6">
+									<div class="PlanCHS">							
+									</div>
+									<div class="Logo">									
+										<img src="/images/Default/Logo-CHS.png" />
+									</div>
+								</div> 
+								</a>
+								<a id="ctl00_HLODS_CH" href="/Offre-soins/5/55">
+								<div class="ODS_CH col-md-6">							
+									<div class="PlanCH">						
+									</div>
+									<div class="Logo">
+										<img src="/images/Default/Logo-CH.png" />						
+									</div>					
+								</div>
+								</a>-->
+								
+								<!--<img src="/images/Default/OFFRE-DE-SOINS-2020.jpg" style="width:100%;margin:30px auto;" alt="" usemap="#Map">
+								<map name="Map">
+									<area shape="poly" alt="CHS" coords="0,0, 796,0, 568,640, 0,640" href=' /offres-de-soins/5/65 '>
+									<area shape="poly" alt="CH" coords="833,0, 1400,0, 1400,640, 605,640" href=' /Offre-soins/5/55 '>
+								</map>-->
+							</div>
+
+							
+						
+</div>
+                        <div id="ctl00_PanContentPlaceHolder1">
+	
+                            <div class="TitreModule" style="position: relative; width: 100%; float: left;">
+                                <h1>
+                                    <span id="ctl00_LabModule">Satisfaction</span></h1>
+                            </div>
+                            <!-- Contenu du module -->
+                            
+    
+    
+    
+    <div id="ctl00_ContentPlaceHolder1_PanListe">
+		
+        <div class="position:relative;">
+			
+            <div class="DetailTexteHaut col-sm-12">
+                    <span id="ctl00_ContentPlaceHolder1_LabDetailTexteH"></span>
+			</div>
+            <div  class='ListeGauche col-xs-12 col-md-2'  style=''>
+                <ul class='ListeBouton'>
+                    
+                            <li class='col-xs-6 col-sm-4 col-md-12'>
+                                <a id="ctl00_ContentPlaceHolder1_RptDetail_ctl00_HyperLink1" href="110.html"><span>CHS</span></a>
+                            </li>
+
+                            
+                            
+                            
+                            
+                            
+                            
+
+                        
+                            <li class='col-xs-6 col-sm-4 col-md-12 ListeSelected'>
+                                <a id="ctl00_ContentPlaceHolder1_RptDetail_ctl01_HyperLink1" href="111.html"><span>CH</span></a>
+                            </li>
+
+                            <div class='clearfix visible-xs'></div>
+                            
+                            
+                            
+                            
+                            
+
+                        
+                </ul>
+                <div id="ctl00_ContentPlaceHolder1_PanOptionAfficheTout">
+			
+                    <div style="position: relative; width: 100%; float: left; text-align: left; margin-top: 4px;">
+                        
+                    </div>
+                
+		</div>
+            </div>
+            <div class='col-xs-12 col-md-10 ListeDetail'>
+                <div id="ContenuFCK" style="position: relative; width: 100%; float: left;">
+                    <span id="ctl00_ContentPlaceHolder1_LabDetail"><div class="panel-group" id="1">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" data-parent="#1" data-toggle="collapse" href="#894322207">Enqu&ecirc;te de satisfaction au CHS</a></h4>
+</div>
+
+<div class="panel-collapse collapse" id="894322207">
+<div class="panel-body">
+<h3>Lors de votre s&eacute;jour</h3>
+
+<p>Participez &agrave; l&rsquo;am&eacute;lioration des prises en charge en remplissant le questionnaire de satisfaction.</p>
+
+<p>Le questionnaire de satisfaction vous sera remis dans le service. N&rsquo;h&eacute;sitez pas &agrave; le demander si tel n&rsquo;est pas le cas. Que vous soyez satisfaits ou non, il est important que nous le sachions.</p>
+
+<p>Le questionnaire de satisfaction peut &ecirc;tre retourn&eacute; :</p>
+
+<ul>
+	<li>A l&rsquo;infirmi&egrave;re ou au cadre de sant&eacute; ;</li>
+	<li>Dans la bo&icirc;te aux lettres destin&eacute;e au courrier dans les halls d&rsquo;accueil ou &agrave; l&rsquo;entr&eacute;e des services ;</li>
+	<li>Au Directeur du CH de Sarreguemines en l&rsquo;adressant par voie postale.</li>
+</ul>
+
+<h3>De retour chez vous apr&egrave;s une hospitalisation&nbsp;</h3>
+
+<p>Vous &ecirc;tes &eacute;galement invit&eacute;s &agrave; remplir l&rsquo;enqu&ecirc;te de satisfaction en ligne du Minist&egrave;re de la sant&eacute;.<br />
+<br />
+<strong>/ ! \</strong> Pour pouvoir y participer, il faut que vous ayez accept&eacute; de donner une adresse e-mail valable lors de votre admission pour recevoir le lien de l&rsquo;enqu&ecirc;te.<br />
+<br />
+<a href="https://www.youtube.com/watch?time_continue=2&amp;v=Vk2efds2Bv8&amp;feature=emb_logo" target="_blank">https://www.youtube.com/watch?time_continue=2&amp;v=Vk2efds2Bv8&amp;feature=emb_logo </a></p>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" data-parent="#1" data-toggle="collapse" href="#749448665">R&eacute;clamations, suggestions, remerciements CHS</a></h4>
+</div>
+
+<div class="panel-collapse collapse" id="749448665">
+<div class="panel-body">
+<p><strong>A c&ocirc;t&eacute; du questionnaire de satisfaction et des &eacute;changes que vous aurez avec le personnel, vous disposez de plusieurs possibilit&eacute;s pour vous exprimer&nbsp;: </strong></p>
+
+<ul>
+	<li><strong>En demandant &agrave; rencontrer le m&eacute;decin et le cadre de sant&eacute; du service</strong></li>
+	<li><strong>En contactant la personne charg&eacute;e des relations avec les usagers qui vous apportera des &eacute;l&eacute;ments de r&eacute;ponse &agrave; vos remarques ou griefs et pourra vous orienter vers les interlocuteurs appropri&eacute;s &agrave; votre demande.</strong></li>
+	<li><strong>En demandant &agrave; rencontrer un repr&eacute;sentant des usagers ou un m&eacute;diateur de la Commission des Usagers</strong></li>
+</ul>
+
+<h3>Rencontrer la personne charg&eacute;e des relations avec les usagers</h3>
+
+<p>Si vous n&#39;&ecirc;tes pas satisfait de votre prise en charge, nous vous invitons &agrave; vous adresser &agrave; l&#39;encadrement du ou des service(s) concern&eacute;(s). Si cette d&eacute;marche ne vous apporte pas satisfaction, vous pouvez demander &agrave; rencontrer la personne charg&eacute;e des relations avec les usagers, au b&acirc;timent administratif, au niveau du service des admissions. Cette personne vous apportera des &eacute;l&eacute;ments de r&eacute;ponse &agrave; vos remarques ou griefs et pourra vous orienter vers les interlocuteurs appropri&eacute;s &agrave; votre demande.</p>
+
+<p>Vous avez aussi la possibilit&eacute; de rencontrer un Repr&eacute;sentant des Usagers ainsi qu&#39;un M&eacute;diateur de la Commission des Usagers.</p>
+
+<p>Le r&ocirc;le du m&eacute;diateur est de vous &eacute;couter, de vous apporter un compl&eacute;ment d&#39;information et de vous accompagner. Les m&eacute;diateurs sont des professionnels du CHS de Sarreguemines ne faisant pas partie des services de soins o&ugrave; a eu lieu la prise en charge. La m&eacute;diation repose sur la confidentialit&eacute; des &eacute;changes, la neutralit&eacute;, l&#39;ind&eacute;pendance et l&#39;impartialit&eacute; des m&eacute;diateurs.</p>
+
+<p>&nbsp;</p>
+
+<h3>Contacter le Charg&eacute; des Relations avec les Usagers</h3>
+
+<ul>
+	<li>Par courrier&nbsp;:&nbsp;</li>
+</ul>
+
+<p align="center"><em>CH&nbsp;de Sarreguemines, relations avec les usagers,</em><br />
+<em>2 Rue Ren&eacute; Fran&ccedil;ois Jolly<br />
+BP 50025 57211 Sarreguemines Cedex</em></p>
+
+<ul>
+	<li>Par mail&nbsp;: XXX</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>La Commission des Usagers (CDU)</h3>
+
+<p>La loi du 4 mars 2002 et le d&eacute;cret n&deg;2005-213 du 2 mars 2005 ont instaur&eacute; la cr&eacute;ation, dans chaque &eacute;tablissement de sant&eacute; public ou priv&eacute;, d&#39;une commission des usagers.</p>
+
+<p>Elle a pour mission de veiller au respect des droits des usagers, de faciliter leurs d&eacute;marches et de contribuer &agrave; l&#39;am&eacute;lioration de la prise en charge des patients en associant les repr&eacute;sentants des usagers.</p>
+
+<p>L&#39;ensemble des r&eacute;clamations adress&eacute;es &agrave; l&#39;&eacute;tablissement de sant&eacute; par les usagers ou les proches ainsi que les r&eacute;ponses apport&eacute;es par les responsables de l&#39;&eacute;tablissement sont &agrave; la disposition des membres de la commission. Elle doit permettre des modalit&eacute;s de r&egrave;glement des litiges centr&eacute;s sur le dialogue avec les usagers gr&acirc;ce &agrave; l&rsquo;intervention de deux m&eacute;diateurs : le m&eacute;diateur m&eacute;decin et le m&eacute;diateur non m&eacute;decin.</p>
+
+<p>Les informations relatives &agrave; la politique d&#39;accueil et de prise en charge des personnes malades et de leurs proches doivent &eacute;galement lui &ecirc;tre communiqu&eacute;es. A partir de ces informations, la Commission des Usagers&nbsp; proc&egrave;de &agrave; une appr&eacute;ciation des pratiques des &eacute;tablissements et formule des recommandations.</p>
+
+<p>Tous les ans, la Commission des Usagers r&eacute;dige un rapport soumis &agrave; la d&eacute;lib&eacute;ration du Conseil de surveillance et transmis &agrave; l&#39;Agence R&eacute;gionale de Sant&eacute;.</p>
+
+<p>&nbsp;</p>
+
+<h3>Le Repr&eacute;sentant des Usagers</h3>
+
+<p>Le repr&eacute;sentant des usagers est le &laquo; porte-parole &raquo; des patients et de leurs proches dans les instances de l&#39;h&ocirc;pital o&ugrave; il a un mandat. C&#39;est un b&eacute;n&eacute;vole d&#39;association de sant&eacute;, qui a re&ccedil;u un agr&eacute;ment sant&eacute; par une commission nationale.</p>
+
+<p>Le repr&eacute;sentant est d&eacute;sign&eacute; pour repr&eacute;senter <u>tous</u> les usagers d&#39;un &eacute;tablissement de sant&eacute;. Il facilite l&#39;expression des malades, favorise le dialogue et l&#39;&eacute;change avec les professionnels de sant&eacute;.</p>
+
+<p>&nbsp;</p>
+
+<div class="encadre_BordureVertFonce">Le repr&eacute;sentant des usagers est un b&eacute;n&eacute;vole, membre d&#39;une association de sant&eacute; agr&eacute;&eacute;e.<br />
+Il est d&eacute;sign&eacute; par son association pour repr&eacute;senter tous les usagers du syst&egrave;me de sant&eacute;, dans les instances d&#39;un &eacute;tablissement de sant&eacute; (Conseil de Surveillance, CDU, CLIN).<br />
+Il est charg&eacute; de faire le lien entre les usagers, les professionnels de sant&eacute; et la direction de l&#39;&eacute;tablissement.</div>
+
+<p>&nbsp;</p>
+
+<h3>Contacter un Repr&eacute;sentant des Usagers</h3>
+
+<h3>&nbsp;</h3>
+</div>
+</div>
+</div>
+
+<p>&nbsp;</p>
+</div>
+
+<p>&nbsp;</p>
+</span>
+                </div>
+            </div>
+        </div>
+    
+	</div>
+    
+    <div id="ContenuFCK" style="position: relative; width: 100%; float: left; margin-top: 20px;">
+        <span id="ctl00_ContentPlaceHolder1_LabTexteB"></span>
+    </div>
+
+                        
+</div>
+                    </div>
+                </div>				
+				<div id="ctl00_FondGris" class="FondGris">
+	
+				
+</div>
+            </div>
+            <div id="Footer">
+                <div id="FooterContenu" class="row LargeurMax">
+                    <a id="ctl00_HLFooter_5" href="../../../DON/2/6.html">FAIRE UN DON</a>
+                    <a id="ctl00_HLFooter_1" href="../../../Contact/10/7.html">Nous contacter</a>
+                    <a id="ctl00_HLFooter_2" href="../../../actualites/1/1.html">Communication</a>
+                    <a id="ctl00_HLFooter_3" href="../../../Plan-site/16/17.html">Plan du site</a>
+                    <a id="ctl00_HLFooter_4" href="../../../Mentions-legales/2/18.html">Mentions légales</a>
+                </div>
+            </div>
+			
+			<!-- Pop up -->
+			
+        </div>
+         <!-- Cookies -->   
+        <div id="ctl00_PanCookies" class="cookie-box cookie-box--hide">
+	
+                En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des statistiques de visite. 
+                    <input type="submit" name="ctl00$BCoookieAccepter" value="Accepter" id="ctl00_BCoookieAccepter" class="cookie-button" />
+                    <input type="submit" name="ctl00$BCoookieRefuser" value="Refuser" id="ctl00_BCoookieRefuser" class="cookie-button" />
+                   
+                    <!-- Lien vers la page Mentions légales ou Données personnelles
+                       Une ancre peut être ajoutée pour arriver directement sur le paragraphe
+                    -->
+                    <a id="ctl00_HLCookiesEnSavoirPlus" class="cookie-button" href="../../../Mentions-legales/2/18.html#Cookies">En savoir plus</a>
+        
+</div>
+        <script type="text/javascript">
+            $(document).ready(function ($) {
+
+                // delegate calls to data-toggle="lightbox"
+                $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        onShown: function () {
+                            if (window.console) {
+                                return console.log('Checking our the events huh?');
+                            }
+                        },
+                        onNavigate: function (direction, itemIndex) {
+                            if (window.console) {
+                                return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);
+                            }
+                        }
+                    });
+                });
+
+                //Programatically call
+                $('#open-image').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+                $('#open-youtube').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+
+                $(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        onShown: function () {
+                            var lb = this;
+                            $(lb.modal_content).on('click', '.modal-footer a', function (e) {
+                                e.preventDefault();
+                                lb.navigateTo(2);
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+        
+
+        <!-- Responsive slider -->
+        <script src="../../../Scripts/ResponsiveSlider/responsiveslides.js"></script>
+        <script>
+            $(function () {
+                $(".rslides").responsiveSlides({
+                    auto: true,             // Boolean: Animate automatically, true or false
+                    speed: 1000,            // Integer: Speed of the transition, in milliseconds
+                    timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+                    pager: true,           // Boolean: Show pager, true or false
+                    nav: false,             // Boolean: Show navigation, true or false
+                    random: false,          // Boolean: Randomize the order of the slides, true or false
+                    pause: false,           // Boolean: Pause on hover, true or false
+                    pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+                    prevText: "Previous",   // String: Text for the "previous" button
+                    nextText: "Next",       // String: Text for the "next" button
+                    maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+                    navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+                    manualControls: "",     // Selector: Declare custom pager navigation
+                    namespace: "rslides",   // String: Change the default namespace used
+                    before: function () { },   // Function: Before callback
+                    after: function () { }     // Function: After callback
+                });
+            });
+			
+
+        </script>
+		
+		
+	<script type="text/javascript" src="../../../Scripts/imageMapResponsive/jquery.rwdImageMaps.min.js"></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(e) {
+		$('img[usemap]').rwdImageMaps();
+		
+	});
+	
+	</script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+GoToDetail();(function() {var fn = function() {$get("ctl00_ToolkitScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+
+<!-- Mirrored from www.hopitaux-sarreguemines.fr/Satisfaction/3/38/111 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:05:46 GMT -->
+</html>

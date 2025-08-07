@@ -1,0 +1,1538 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="../../../www.w3.org/1999/xhtml/index.html">
+
+<script src="../../../code.jquery.com/jquery.js"></script>
+
+
+<!-- Mirrored from www.hopitaux-sarreguemines.fr/Offre-soins/5/55 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:04:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- Pour que les tablettes et smartphone adapte la page à la résolution -->
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+<meta name="viewport" content="height=device-height; initial-scale=1; maximum-scale=1">
+
+
+<!-- JQuery -->
+<script src="../../../code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+<!-- APPEL VERS LES LIBRAIRIE JS JQUERY ET DATATABLE  -->
+<script type="text/javascript" language="javascript" src="../../Scripts/jqueryUI/jquery.dataTables.js"></script>
+<!-- APPEL DES CSS MODIFIABLE EN FONCTION DE LA CHARTE GRAPHIQUE -->
+<link href="../../Style/jqueryUI/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../Style/jqueryUI/jquery.dataTables.css" />
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="../../Style/bootstrap/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../../Style/bootstrap/bootamc.css" type="text/css" />
+<script type="text/javascript" src="../../Scripts/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../Scripts/bootstrap/transition.js"></script>
+<script type="text/javascript" src="../../Scripts/bootstrap/collapse.js"></script>
+
+
+<!-- ekko-lightbox -->
+<link href="../../Style/bootstrap/ekko-lightbox.min.css" rel="stylesheet">
+<script src="../../Scripts/bootstrap/ekko-lightbox.min.js"></script>
+
+<!-- Responsive slider -->
+<script src="../../Scripts/ResponsiveSlider/responsiveslides.js"></script>
+
+
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="//Scripts/respond.min.js"></script>
+    <script type="text/javascript" src="//Scripts/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="//Scripts/css-media-query-ie.min.js"></script>
+    <script type="text/javascript" src="//Scripts/css-media-query-ie.js"></script>
+    <![endif]-->
+
+<link href="../../../fonts.googleapis.com/csscaf0.css?family=Montserrat:400,500,600,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" href="../../Style/FontAwesome/css/all.min.css" type="text/css" />
+
+
+
+
+<style type="text/css">
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        font-family: Arial;
+    }
+
+    /*Visibilité des div*/
+
+    .Cache {
+        display: none;
+    }
+
+    .Visible {
+        display: block;
+    }
+
+    .ScrollDiv {
+        width: auto;
+    }
+	
+	
+	/* Recherche Google */
+	.gsc-control-cse
+	{
+		padding:0;
+	}
+	
+	.gsc-search-button
+	{
+		background-color: #60a9dd;
+		border-radius: 5px;
+
+	}
+	
+</style>
+<script type="text/javascript">
+    function CallPrint() {
+        var prtContent = document.getElementById('contenu');
+        var WinPrint = window.open('', '', 'letf=0,top=0,width=710,height=600,toolbar=0,scrollbars=1,status=0');
+
+        WinPrint.document.write('<style type="text/css">html{font-size: 16px;}</style><link rel="stylesheet" type="text/css" href="../../Style/Style.css"><link rel="stylesheet" type="text/css" href="../../Style/StyleCK.css"><body>' + prtContent.innerHTML + '</body>');
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+    }
+
+
+    function PortailOver(PortailID) {
+        window.document.getElementById("CadreModule" + PortailID).className = "Visible";		 
+		/*if(PortailID == "8")
+		{
+			window.document.getElementById("ctl00_PanContentPlaceHolder1").style.display = "none";
+			window.document.getElementById("ctl00_PanOffresdeSoins").style.display = "block";
+			window.document.getElementById("ctl00_PanEnteteListe").style.display = "none";
+			
+		}
+		*/	
+    }
+
+    function PortailOut(PortailID) {
+        window.document.getElementById("CadreModule" + PortailID).className = "Cache";				 
+		/*if(PortailID != "8")
+		{
+			window.document.getElementById("ctl00_PanContentPlaceHolder1").style.display = "block";
+			window.document.getElementById("ctl00_PanOffresdeSoins").style.display = "none";
+			window.document.getElementById("ctl00_PanEnteteListe").style.display = "block";
+		}*/
+    }
+
+    function AfficheCacheDiv(Div) {
+        if (window.document.getElementById(Div).className == "Cache") {
+            window.document.getElementById(Div).className = "Visible";
+        }
+        else {
+            window.document.getElementById(Div).className = "Cache";
+        }
+    }
+
+    function AfficheDivOver(Div) {
+        window.document.getElementById(Div).className = "Visible";
+    }
+
+    function CacheDivOver(Div) {
+        window.document.getElementById(Div).className = "Cache";
+    }
+
+    function AfficheSousModule(Cible) {
+        window.document.getElementById("CadreSousModule_" + Cible).style.display = "block";
+    }
+
+    function CacheSousModule(Cible) {
+        window.document.getElementById("CadreSousModule_" + Cible).style.display = "none";
+    }
+
+    function AfficheDiv(Div) {
+        window.document.getElementById(Div).style.display = "block";
+    }
+
+    function CacheDiv(Div) {
+        window.document.getElementById(Div).style.display = "none";
+    }
+	
+	
+    $(function () {	
+		
+		
+        
+		// window load
+		$( document ).ready(function() {
+            // ouverture du 1er item par défaut dans le portail Patient et Entourage
+            //$('.Portail2 .panel-group a:first').trigger("click");
+		});
+
+		
+		/* scroll si entete plus haut que haut de la fenêtre */
+        $('.panel-collapse').on('shown.bs.collapse', function (e) {
+		
+			var $panel = $(this),			 
+			$window    = $(window),
+			offset     = $panel.offset();
+						
+			if ($(this).is(e.target)) 
+			{
+				if($window.scrollTop() > offset.top)
+				{			
+					$('html,body').animate({
+						scrollTop: $panel.parent().offset().top
+					}, 500);
+				}
+			}
+        });
+    });
+</script>
+
+
+
+
+<head id="ctl00_Head1"><title>
+	
+        Offre de soins CH - GHT de Sarreguemines 
+</title>
+    <!-- styles minimum pour les nouveaux site créés -->
+    <!--<link rel="stylesheet" type="text/css" href="../../Style/default.css" />-->
+
+    <!-- styles bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="../../Style/Style.css" /><link rel="stylesheet" type="text/css" href="../../Style/bootstrap/bootamc.css" />
+
+    <!-- styles presonnalisé du site -->
+    <link rel="stylesheet" type="text/css" href="../../Style/Master.css" /><link rel="stylesheet" type="text/css" href="../../Ght_sarreguemines.css" /><link rel="stylesheet" type="text/css" href="../../Style/StyleCK.css" /><link rel="stylesheet" type="text/css" href="../../Style/Slideshow.css" />
+<meta content="GHT de Sarreguemines " name="description" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="https://www.hopitaux-sarreguemines.fr/Offre-soins/5/55" id="aspnetForm">
+<div>
+<input type="hidden" name="ctl00_ToolkitScriptManager1_HiddenField" id="ctl00_ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjcwNTg5NzE3D2QWAmYPDxYKHgtUaXRyZVBhZ2V2cwUpT2ZmcmUgZGUgc29pbnMgQ0ggLSBHSFQgZGUgU2FycmVndWVtaW5lcyAeCkxhbmd1ZUlEdnMCAR4LUG9ydGFpbElEdnMCCB4KTW9kdWxlSUR2cwI3Hg1JbWFnZUNlbnRyZXZzBS0vUmVzc291cmNlcy9GVFAvYmFuZGVhdV9tb2R1bGUvTW9kdWxlX0RlZi5qcGdkFgICAQ8WAh4GYWN0aW9uBREvT2ZmcmUtc29pbnMvNS81NRYkAgIPDxYEHgtOYXZpZ2F0ZVVybAUPfi91cmdlbmNlcy8yLzY0HgRUZXh0BQhVcmdlbmNlc2RkAgMPDxYCHwYFG34vUmVuZGV6LXZvdXMtZW4tbGlnbmUvMi8zMGRkAgQPFgIeC18hSXRlbUNvdW50AgMWBmYPZBYIZg8VBAE4ATgBOA9Qb3J0YWlsTGllbk92ZXJkAgEPDxYCHwYFFX4vT2ZmcmUtZGUtc29pbnMvMi82OGQWAmYPFQEOT2ZmcmUgZGUgc29pbnNkAgQPFQIBOAVDYWNoZWQCBQ8WAh8IZmQCAQ9kFghmDxUEATIBMgEyC1BvcnRhaWxMaWVuZAIBD2QWAmYPFQEUUGF0aWVudCBldCBlbnRvdXJhZ2VkAgQPFQIBMgVDYWNoZWQCBQ8WAh8IAgUWCmYPZBYIZg8VAwtDYWRyZU1vZHVsZQI3NQI3NWQCAw8PFgYeBlRhcmdldGUfBwUMQ29uc3VsdGF0aW9uHwYFEy9Db25zdWx0YXRpb25zLzMvNzVkZAIEDxUBAjc1ZAIFDxYCHwhmZAIBD2QWCGYPFQMLQ2FkcmVNb2R1bGUCNTcCNTdkAgMPDxYGHwllHwcFD0hvc3BpdGFsaXNhdGlvbh8GBRUvSG9zcGl0YWxpc2F0aW9uLzMvNTdkZAIEDxUBAjU3ZAIFDxYCHwhmZAICD2QWCGYPFQMLQ2FkcmVNb2R1bGUCNzcCNzdkAgMPDxYGHwllHwcFGlJlbmRyZSB2aXNpdGUgw6AgdW4gcHJvY2hlHwYFFy9WaXNpdGVyLXVuLXByb2NoZS8zLzc3ZGQCBA8VAQI3N2QCBQ8WAh8IZmQCAw9kFghmDxUDC0NhZHJlTW9kdWxlAjM3AjM3ZAIDDw8WBh8JZR8HBQ5SRUdMRU1FTlRBVElPTh8GBRUvcsOoZ2xlbWVudGF0aW9uLzIvMzdkZAIEDxUBAjM3ZAIFDxYCHwhmZAIED2QWCGYPFQMLQ2FkcmVNb2R1bGUCMzgCMzhkAgMPDxYGHwllHwcFDFNhdGlzZmFjdGlvbh8GBRIvU2F0aXNmYWN0aW9uLzMvMzhkZAIEDxUBAjM4ZAIFDxYCHwhmZAICD2QWCGYPFQQBNwE3ATcLUG9ydGFpbExpZW5kAgEPZBYCZg8VAQ5Qcm9mZXNzaW9ubmVsc2QCBA8VAgE3BUNhY2hlZAIFDxYCHwgCBhYMZg9kFghmDxUDC0NhZHJlTW9kdWxlAjg5Ajg5ZAIDDw8WBh8JZR8HBQ9Db21pdMOpIEV0aGlxdWUfBgUUL2NvbWl0ZS1ldGhpcXVlLzIvODlkZAIEDxUBAjg5ZAIFDxYCHwhmZAIBD2QWCGYPFQMLQ2FkcmVNb2R1bGUCOTUCOTVkAgMPDxYGHwllHwcFJlDDqXBpbmnDqHJlIGQnZW50cmVwcmlzZSBFLXNhbnTDqSBDQ0RMHwYFKS9wZXBpbmllcmUtZC1lbnRyZXByaXNlLWUtc2FudGUtY2NkbC8zLzk1ZGQCBA8VAQI5NWQCBQ8WAh8IZmQCAg9kFghmDxUDC0NhZHJlTW9kdWxlAjMxAjMxZAIDDw8WBh8JZR8HBRhQcm9mZXNzaW9ubmVscyBkZSBzYW50w6kfBgUdL1Byb2Zlc3Npb25uZWxzLWRlLXNhbnRlLzMvMzFkZAIEDxUBAjMxZAIFDxYCHwhmZAIDD2QWCGYPFQMLQ2FkcmVNb2R1bGUCMzICMzJkAgMPDxYGHwllHwcFD09mZnJlcyBkJ2VtcGxvaR8GBQwvRW1wbG9pLzcvMzJkZAIEDxUBAjMyZAIFDxYCHwhmZAIED2QWCGYPFQMLQ2FkcmVNb2R1bGUCODgCODhkAgMPDxYGHwllHwcFLFNpZ25hbGVtZW50IGRlcyB2aW9sZW5jZXMgZXQgZHUgaGFyY8OobGVtZW50HwYFMS9zaWduYWxlbWVudC1kZXMtdmlvbGVuY2VzLWV0LWR1LWhhcmNlbGVtZW50LzIvODhkZAIEDxUBAjg4ZAIFDxYCHwhmZAIFD2QWCGYPFQMLQ2FkcmVNb2R1bGUCMzQCMzRkAgMPDxYGHwllHwcFFEFjaGF0cywgZm91cm5pc3NldXJzHwYFEi9Gb3Vybmlzc2V1cnMvMy8zNGRkAgQPFQECMzRkAgUPFgIfCGZkAgUPFgIfCAIDFgZmD2QWBmYPFQIOU1BfRm9uZFBvcnRhaWwUL09mZnJlLWRlLXNvaW5zLzIvNjhkAgEPDxYEHwcFDk9GRlJFIERFIFNPSU5THg9Db21tYW5kQXJndW1lbnQFAThkZAIDDxYCHwhmZAIBD2QWBmYPFQIOU1BfRm9uZFBvcnRhaWwZL1ByZW5kcmUtcmVuZGV6LXZvdXMvMy83NGQCAQ8PFgQfBwUUUEFUSUVOVCBFVCBFTlRPVVJBR0UfCgUBMmRkAgMPFgIfCAIFFgpmD2QWCGYPFQETL0NvbnN1bHRhdGlvbnMvMy83NWQCAQ8PFgQfBwUMQ29uc3VsdGF0aW9uHwoFAjc1ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfCGZkAgEPZBYIZg8VARUvSG9zcGl0YWxpc2F0aW9uLzMvNTdkAgEPDxYEHwcFD0hvc3BpdGFsaXNhdGlvbh8KBQI1N2RkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwhmZAICD2QWCGYPFQEXL1Zpc2l0ZXItdW4tcHJvY2hlLzMvNzdkAgEPDxYEHwcFGlJlbmRyZSB2aXNpdGUgw6AgdW4gcHJvY2hlHwoFAjc3ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfCGZkAgMPZBYIZg8VARUvcsOoZ2xlbWVudGF0aW9uLzIvMzdkAgEPDxYEHwcFDlJFR0xFTUVOVEFUSU9OHwoFAjM3ZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfCGZkAgQPZBYIZg8VARIvU2F0aXNmYWN0aW9uLzMvMzhkAgEPDxYEHwcFDFNhdGlzZmFjdGlvbh8KBQIzOGRkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwhmZAICD2QWBmYPFQIOU1BfRm9uZFBvcnRhaWwdL1Byb2Zlc3Npb25uZWxzLWRlLXNhbnRlLzMvMzFkAgEPDxYEHwcFDlBST0ZFU1NJT05ORUxTHwoFATdkZAIDDxYCHwgCBhYMZg9kFghmDxUBFC9jb21pdGUtZXRoaXF1ZS8yLzg5ZAIBDw8WBB8HBQ9Db21pdMOpIEV0aGlxdWUfCgUCODlkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8IZmQCAQ9kFghmDxUBKS9wZXBpbmllcmUtZC1lbnRyZXByaXNlLWUtc2FudGUtY2NkbC8zLzk1ZAIBDw8WBB8HBSZQw6lwaW5pw6hyZSBkJ2VudHJlcHJpc2UgRS1zYW50w6kgQ0NETB8KBQI5NWRkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwhmZAICD2QWCGYPFQEdL1Byb2Zlc3Npb25uZWxzLWRlLXNhbnRlLzMvMzFkAgEPDxYEHwcFGFByb2Zlc3Npb25uZWxzIGRlIHNhbnTDqR8KBQExZGQCAg8VARVzdHlsZT0nZGlzcGxheTpub25lOydkAgMPFgIfCGZkAgMPZBYIZg8VAQwvRW1wbG9pLzcvMzJkAgEPDxYEHwcFD09mZnJlcyBkJ2VtcGxvaR8KBQIzMmRkAgIPFQEVc3R5bGU9J2Rpc3BsYXk6bm9uZTsnZAIDDxYCHwhmZAIED2QWCGYPFQExL3NpZ25hbGVtZW50LWRlcy12aW9sZW5jZXMtZXQtZHUtaGFyY2VsZW1lbnQvMi84OGQCAQ8PFgQfBwUsU2lnbmFsZW1lbnQgZGVzIHZpb2xlbmNlcyBldCBkdSBoYXJjw6hsZW1lbnQfCgUCODhkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8IZmQCBQ9kFghmDxUBEi9Gb3Vybmlzc2V1cnMvMy8zNGQCAQ8PFgQfBwUUQWNoYXRzLCBmb3Vybmlzc2V1cnMfCgUCMzRkZAICDxUBFXN0eWxlPSdkaXNwbGF5Om5vbmU7J2QCAw8WAh8IZmQCBg8PFgIeCEltYWdlVXJsBRovaW1hZ2VzL0RlZmF1bHQvQU1vaW5zLnBuZ2RkAgcPDxYCHwsFFS9pbWFnZXMvRGVmYXVsdC9BLnBuZ2RkAggPDxYCHwsFGS9pbWFnZXMvRGVmYXVsdC9BUGx1cy5wbmdkZAIKDw8WAh4HVmlzaWJsZWhkZAILD2QWBAIBDw8WAh8HBQ5PZmZyZSBkZSBzb2luc2RkAgMPDxYCHwcFEU9mZnJlIGRlIHNvaW5zIENIZGQCDA9kFgRmDw8WAh8GBRUvb2ZmcmVzLWRlLXNvaW5zLzUvNjVkZAIBDw8WAh8GBREvT2ZmcmUtc29pbnMvNS81NWRkAg0PDxYCHwxnZBYEAgEPDxYCHwcFEU9mZnJlIGRlIHNvaW5zIENIZGQCAw9kFgoCAQ8PFgIfDGhkFgYCAQ8PFgIfBwUVUmVjaGVyY2hlciB1biBzZXJ2aWNlZGQCAw8PFgIfBwV1U2Fpc2lzc2V6IGxlIG5vbSBvdSB1bmUgcGFydGllIGR1IDxiPm5vbSBkdSBzZXJ2aWNlPC9iPiwgZCd1biA8Yj5tw6lkZWNpbjwvYj4gb3UgdW4gPGI+bW90LWNsw6k8L2I+IChleGVtcGxlIDogR2Vub3UpZGQCBw8PFgIfBwUKUmVjaGVyY2hlcmRkAgUPDxYCHwxoZGQCBw8PFgIfDGhkZAIJDw8WAh8MaGRkAgsPDxYCHwxnZBYCAgEPFgIfCAIEFghmD2QWCmYPFQMBOAE4AThkAgEPDxYCHwcFDlBPTEUgQ0hJUlVSR0lFFgIeBXZhbHVlBQE4ZAIEDxUBAThkAgUPFgIfCAIJFhJmD2QWAgIBDw8WAh8GBRR+L0FuZXN0aGVzaWUvNS81NS85OWQWBgICDxUBGEFuZXN0aMOpc2llL1LDqWFuaW1hdGlvbmQCAw8PFgIfCwU7L1Jlc3NvdXJjZXMvT0RTL2FuZXN0aGVzaWUgMjAyMCAxMDB4MTAwMjAyMDAzMDkwOTU1MzMwMS5wbmdkZAIEDxUBAGQCAQ9kFgICAQ8PFgIfBgUefi9DaGlydXJnaWUtQW1idWxhdG9pcmUvNS81NS8yZBYGAgIPFQEVQ2hpcnVyZ2llIGFtYnVsYXRvaXJlZAIDDw8WAh8LBUAvUmVzc291cmNlcy9PRFMvY2hpcnVyZ2llIGFtYnVsYXRvaXJlMTAweDEwMDIwMTkxMjEyMTcxOTM3NzcucG5nZGQCBA8VAQBkAgIPZBYCAgEPDxYCHwYFJn4vQ2hpcnVyZ2llLWdlbmVyYWxlLWRpZ2VzdGl2ZS81LzU1LzMxZBYGAgIPFQEhQ2hpcnVyZ2llIGfDqW7DqXJhbGUgZXQgZGlnZXN0aXZlZAIDDw8WAh8LBVAvUmVzc291cmNlcy9PRFMvY2hpcnVyZ2llIGdlbmVyYWxlIGV0IGRpZ2VzdGl2ZSAyMDIwIDEwMHgxMDAyMDIwMDMwOTA5NTQxMjcwLnBuZ2RkAgQPFQEAZAIDD2QWAgIBDw8WAh8GBSF+L2NoaXJ1cmdpZS1neW5lY29sb2dpcXVlLzUvNTUvOThkFgYCAg8VARhDaGlydXJnaWUgZ3luw6ljb2xvZ2lxdWVkAgMPDxYCHwsFPS9SZXNzb3VyY2VzL09EUy9jaGlyIGd5bmVjbyAgMjAyMCAxMDB4MTAwMjAyMDAzMDkwOTU4MDUxNS5wbmdkZAIEDxUBMjxkaXYgY2xhc3M9J2NsZWFyZml4IHZpc2libGUtc20gdmlzaWJsZS1tZCc+PC9kaXY+ZAIED2QWAgIBDw8WAh8GBRt+L0NoaXJ1cmdpZS1PUkwtT1BILzUvNTUvMzBkFgYCAg8VARNDaGlydXJnaWUgT1JMIC0gT1BIZAIDDw8WAh8LBTkvUmVzc291cmNlcy9PRFMvY2hpcnVyZ2llIG9ybCAxMDB4MTAwMjAxOTEyMTIxNzA3MzU0OC5wbmdkZAIEDxUBAGQCBQ9kFgICAQ8PFgIfBgUwfi9jaGlydXJnaWUtb3J0aG9wZWRpcXVlLXRyYXVtYXRvbG9naXF1ZS81LzU1LzI5ZBYGAgIPFQEnQ2hpcnVyZ2llIE9ydGhvcMOpZGlxdWUgVHJhdW1hdG9sb2dpcXVlZAIDDw8WAh8LBUovUmVzc291cmNlcy9PRFMvY2hpcnVyZ2llIG9ydGhvcGVkaXF1ZSB0cmF1bWF0bzEwMFgxMDAyMDE5MTIxMjE3MjE1MTM3LnBuZ2RkAgQPFQEAZAIGD2QWAgIBDw8WAh8GBSh+L0NoaXJ1cmdpZS1wbGFzdGlxdWUtZXN0aGV0aXF1ZS81LzU1LzI3ZBYGAgIPFQEiQ2hpcnVyZ2llIHBsYXN0aXF1ZSBldCBlc3Row6l0aXF1ZWQCAw8PFgIfCwVML1Jlc3NvdXJjZXMvT0RTL0NISVJVUkdJRSBQTEFTVElRVUUgRVQgRVNUSEVUSVFVRTEwMFgxMDAyMDE5MTIxMjE3MjIxNzEyLnBuZ2RkAgQPFQEAZAIHD2QWAgIBDw8WAh8GBR5+L0NoaXJ1cmdpZS11cm9sb2dpcXVlLzUvNTUvMjhkFgYCAg8VARRDaGlydXJnaWUgVXJvbG9naXF1ZWQCAw8PFgIfCwU/L1Jlc3NvdXJjZXMvT0RTL2NoaXJ1cmdpZSB1cm9sb2dpcXVlMTAweDEwMDIwMTkxMjEyMTcyMjQwOTMucG5nZGQCBA8VATI8ZGl2IGNsYXNzPSdjbGVhcmZpeCB2aXNpYmxlLXNtIHZpc2libGUtbWQnPjwvZGl2PmQCCA9kFgICAQ8PFgIfBgUUfi9SZWFuaW1hdGlvbi81LzU1LzFkFgYCAg8VAQxSw6lhbmltYXRpb25kAgMPDxYCHwsFNy9SZXNzb3VyY2VzL09EUy9yZWFuaW1hdGlvbiAxMDB4MTAwMjAxOTEyMTIxNzA5MzUxOC5wbmdkZAIEDxUBAGQCBg8VAQBkAgEPZBYKZg8VAwE3ATcBN2QCAQ8PFgIfBwUNUE9MRSBNRURFQ0lORRYCHw0FATdkAgQPFQEBN2QCBQ8WAh8IAgwWGGYPZBYCAgEPDxYCHwYFFn4vY2FyZGlvbG9naWUvNS81NS8xMDhkFgYCAg8VAQtDYXJkaW9sb2dpZWQCAw8PFgIfCwU1L1Jlc3NvdXJjZXMvT0RTL1BsYW4gZGUgdHJhdmFpbCAxMjAyNDExMTMxMDUxMjA3Mi5wbmdkZAIEDxUBAGQCAQ9kFgICAQ8PFgIfBgUcfi9HYXN0cm8tZW50ZXJvbG9naWUvNS81NS8yM2QWBgICDxUBE0dhc3Ryby1lbnTDqXJvbG9naWVkAgMPDxYCHwsFNy9SZXNzb3VyY2VzL09EUy9nYXN0cm8gMjAyMCAxMDB4MTAwMjAyMDAzMDkwOTUzNTQ0NC5wbmdkZAIEDxUBAGQCAg9kFgICAQ8PFgIfBgUNfi9IREovNS81NS8xNGQWBgICDxUBHUjDtHBpdGFsIGRlIGpvdXIgZGUgbcOpZGVjaW5lZAIDDw8WAh8LBTsvUmVzc291cmNlcy9PRFMvaG9waXRhbCBkZSBqb3VyIDEwMHgxMDAyMDE5MTIxMjE3NDI1NDA1LnBuZ2RkAgQPFQEAZAIDD2QWAgIBDw8WAh8GBRF+L0NlR0lERC81LzU1LzEwN2QWBgICDxUBBkNlR0lERGQCAw8PFgIfCwUtL1Jlc3NvdXJjZXMvT0RTL2NlZ2lkZCBSRDIwMjMwMzE0MTcwMjE1NzQuanBnZGQCBA8VATI8ZGl2IGNsYXNzPSdjbGVhcmZpeCB2aXNpYmxlLXNtIHZpc2libGUtbWQnPjwvZGl2PmQCBA9kFgICAQ8PFgIfBgUefi9NZWRlY2luZS1wb2x5dmFsZW50ZS81LzU1LzIyZBYGAgIPFQEVTcOpZGVjaW5lIHBvbHl2YWxlbnRlZAIDDw8WAh8LBUUvUmVzc291cmNlcy9PRFMvbWVkZWNpbmUgcG9seXZhbGVudGUgMjAyMCAxMDB4MTAwMjAyMDAzMDkwOTQ4MDUzMS5wbmdkZAIEDxUBAGQCBQ9kFgICAQ8PFgIfBgUVfi9QbmV1bW9sb2dpZS81LzU1LzE3ZBYGAgIPFQELUG5ldW1vbG9naWVkAgMPDxYCHwsFLy9SZXNzb3VyY2VzL09EUy9wbmV1bW9sb2dpZTIwMjAwNTExMTAzNDEzMDkucG5nZGQCBA8VAQBkAgYPZBYCAgEPDxYCHwYFGn4vQ2xpbmlxdWUtZG91bGV1ci81LzU1LzEyZBYGAgIPFQEWQ2xpbmlxdWUgZGUgbGEgZG91bGV1cmQCAw8PFgIfCwVCL1Jlc3NvdXJjZXMvT0RTL2NsaW5pcXVlIGRlIGxhIGRvdWxldXIgMTAweDEwMDIwMTkxMjEyMTc0MTE0MzQucG5nZGQCBA8VAQBkAgcPZBYCAgEPDxYCHwYFHH4vVXJnZW5jZXMtQ1NOUC1TTVVSLzUvNTUvMTZkFgYCAg8VARZVcmdlbmNlcyAtIENTTlAgLSBTTVVSZAIDDw8WAh8LBTkvUmVzc291cmNlcy9PRFMvVVJHRU5DRVMgMjAyMCAxMDB4MTAwMjAyMDAzMDkwOTM4MjI4MS5wbmdkZAIEDxUBMjxkaXYgY2xhc3M9J2NsZWFyZml4IHZpc2libGUtc20gdmlzaWJsZS1tZCc+PC9kaXY+ZAIID2QWAgIBDw8WAh8GBQ1+L0hBRC81LzU1LzIwZBYGAgIPFQEbSG9zcGl0YWxpc2F0aW9uIMOgIGRvbWljaWxlZAIDDw8WAh8LBS8vUmVzc291cmNlcy9PRFMvaGFkIDEwMHgxMDAyMDE5MTIxMjE3NDIyMzY1LnBuZ2RkAgQPFQEAZAIJD2QWAgIBDw8WAh8GBSR+L2dlcmlhdHJpZS1zb2lucy1wYWxsaWF0aWZzLzUvNTUvMTlkFgYCAg8VAR1Hw6lyaWF0cmllIC0gU29pbnMgUGFsbGlhdGlmc2QCAw8PFgIfCwUwL1Jlc3NvdXJjZXMvT0RTL2dlcmlhdHJpZSBSRDIwMjMwMzE0MTcwMDI2MjQuanBnZGQCBA8VAQBkAgoPZBYCAgEPDxYCHwYFDX4vU1NSLzUvNTUvMjVkFgYCAg8VAVJTU1IgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU3QtSm9zZXBoIC0gQml0Y2hlZAIDDw8WAh8LBS8vUmVzc291cmNlcy9PRFMvc3NyIDEwMHgxMDAyMDE5MTIxMjE3NDU0OTI4LnBuZ2RkAgQPFQEAZAILD2QWAgIBDw8WAh8GBQ5+L1VTTEQvNS81NS8yNGQWBgICDxUBFVVTTEQgU3QgSm9zZXBoIEJJVENIRWQCAw8PFgIfCwUwL1Jlc3NvdXJjZXMvT0RTL2dsb3JpZXR0ZSBSRDIwMjMwMzE0MTcwMTMwNTAuanBnZGQCBA8VATI8ZGl2IGNsYXNzPSdjbGVhcmZpeCB2aXNpYmxlLXNtIHZpc2libGUtbWQnPjwvZGl2PmQCBg8VAVc8L2Rpdj48ZGl2IGNsYXNzPSdyb3cgcm93LWVxLWhlaWdodCcgc3R5bGU9J3BhZGRpbmctdG9wOjA7IHBhZGRpbmctYm90dG9tOjA7bWFyZ2luOjA7Jz5kAgIPZBYKZg8VAwE5ATkBOWQCAQ8PFgIfBwUQTUVESUNPIFRFQ0hOSVFVRRYCHw0FATlkAgQPFQEBOWQCBQ8WAh8IAgQWCGYPZBYCAgEPDxYCHwYFGn4vSW1hZ2VyaWUtbWVkaWNhbGUvNS81NS83ZBYGAgIPFQESSW1hZ2VyaWUgbcOpZGljYWxlZAIDDw8WAh8LBTwvUmVzc291cmNlcy9PRFMvaW1hZ2VyaWUgbWVkaWNhbGUxMDB4MTAwMjAxOTEyMTEwOTE4MzczNy5wbmdkZAIEDxUBAGQCAQ9kFgICAQ8PFgIfBgUbfi9NZWRlY2luZS1udWNsZWFpcmUvNS81NS85ZBYGAgIPFQEUTcOpZGVjaW5lIG51Y2zDqWFpcmVkAgMPDxYCHwsFPS9SZXNzb3VyY2VzL09EUy9tZWRlY2luZSBudWNsZWFpcmUxMDB4MTAwMjAxOTEyMTEwOTE5Mzg4Ni5wbmdkZAIEDxUBAGQCAg9kFgICAQ8PFgIfBgUUfi9MYWJvcmF0b2lyZS81LzU1LzhkFgYCAg8VASFMYWJvcmF0b2lyZSBkZSBiaW9sb2dpZSBtw6lkaWNhbGVkAgMPDxYCHwsFQS9SZXNzb3VyY2VzL09EUy9sYWJvIGJpb2xvZ2llIG1lZGljYWxlMTAweDEwMDIwMTkxMjExMDkxOTExMzYucG5nZGQCBA8VAQBkAgMPZBYCAgEPDxYCHwYFE34vUGhhcm1hY2llLzUvNTUvMTBkFgYCAg8VAQlQaGFybWFjaWVkAgMPDxYCHwsFNC9SZXNzb3VyY2VzL09EUy9waGFybWFjaWUxMDB4MTAwMjAxOTEyMTEwOTE5NTgwMS5wbmdkZAIEDxUBMjxkaXYgY2xhc3M9J2NsZWFyZml4IHZpc2libGUtc20gdmlzaWJsZS1tZCc+PC9kaXY+ZAIGDxUBAGQCAw9kFgpmDxUDAjEwAjEwAjEwZAIBDw8WAh8HBRBQT0xFIE1FUkUgRU5GQU5UFgIfDQUCMTBkAgQPFQECMTBkAgUPFgIfCAIEFghmD2QWAgIBDw8WAh8GBRR+L01hdGVybml0ZS81LzU1LzEwM2QWBgICDxUBGU1hdGVybml0w6kgLSBHeW7DqWNvbG9naWVkAgMPDxYCHwsFSi9SZXNzb3VyY2VzL09EUy9neW5lY29sb2dpZSBtYXRlcm5pdGUgY3BwIGNwZWYgMTAweDEwMDIwMjAwMzA5MTAwMDUyODIucG5nZGQCBA8VAQBkAgEPZBYCAgEPDxYCHwYFEn4vUGVkaWF0cmllLzUvNTUvNGQWBgICDxUBClDDqWRpYXRyaWVkAgMPDxYCHwsFUC9SZXNzb3VyY2VzL09EUy9ww6lkaWF0cmllIGhkaiB1cmdlbmNlcyBwZWRpYXRyaXF1ZXMgMTAweDEwMDIwMTkxMjEyMTc0NzM2OTcucG5nZGQCBA8VAQBkAgIPZBYCAgEPDxYCHwYFGn4vSEFELW9ic3RldHJpcXVlLzUvNTUvMTA1ZBYGAgIPFQEoSG9zcGl0YWxpc2F0aW9uIMOgIGRvbWljaWxlIG9ic3TDqXRyaXF1ZWQCAw8PFgIfCwU5L1Jlc3NvdXJjZXMvT0RTL2hhZCBvYnN0IDIwMjAgMTAweDEwMDIwMjAwMzA5MDk0NTQzMDEucG5nZGQCBA8VAQBkAgMPZBYCAgEPDxYCHwYFIn4vQ2VudHJlLXBlcmluYXRhbC1CaXRjaGUvNS81NS8xMDRkFgYCAg8VASpDZW50cmUgcMOpcmluYXRhbCBkZSBwcm94aW1pdMOpIGRlIEJpdGNoZSBkAgMPDxYCHwsFSi9SZXNzb3VyY2VzL09EUy9neW5lY29sb2dpZSBtYXRlcm5pdGUgY3BwIGNwZWYgMTAweDEwMDIwMjQwMzEzMTM1MDQyMjcucG5nZGQCBA8VATI8ZGl2IGNsYXNzPSdjbGVhcmZpeCB2aXNpYmxlLXNtIHZpc2libGUtbWQnPjwvZGl2PmQCBg8VAVc8L2Rpdj48ZGl2IGNsYXNzPSdyb3cgcm93LWVxLWhlaWdodCcgc3R5bGU9J3BhZGRpbmctdG9wOjA7IHBhZGRpbmctYm90dG9tOjA7bWFyZ2luOjA7Jz5kAg8PDxYEHwcFDEZBSVJFIFVOIERPTh8GBQl+L0RPTi8yLzZkZAIQDw8WBB8HBQ5Ob3VzIGNvbnRhY3Rlch8GBQ5+L0NvbnRhY3QvMTAvN2RkAhEPDxYEHwcFDUNvbW11bmljYXRpb24fBgUQfi9hY3R1YWxpdGVzLzEvMWRkAhIPDxYEHwcFDFBsYW4gZHUgc2l0ZR8GBRF+L1BsYW4tc2l0ZS8xNi8xN2RkAhMPDxYEHwcFEU1lbnRpb25zIGzDqWdhbGVzHwYFF34vTWVudGlvbnMtbGVnYWxlcy8yLzE4ZGQCFA8PFgIfDGhkZAIVD2QWAgIFDw8WAh8GBR4vTWVudGlvbnMtbGVnYWxlcy8yLzE4I0Nvb2tpZXNkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAwUOY3RsMDAkSUJBTW9pbnMFCWN0bDAwJElCQQUNY3RsMDAkSUJBUGx1cwjXMvEzEgXX5Pmdc+G2FUt1eyTCfo9WcgF7xdFS3kNZ" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="../../WebResourcebcc9.js?d=9cAV11wUu06OHi1K-AW_fgHb9FE3w-PlHtUoWuRge30U5iZwftlCl_Y-jF3AHUms7KQjcp9fln6bGf9LO_6G1sStd0V93XWHzGmeXY-DtvA1&amp;t=637110284437816177" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"fr-FR","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"€","NaNSymbol":"Non numérique","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infini","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"+Infini","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"/","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"dddd d MMMM yyyy HH:mm:ss","LongDatePattern":"dddd d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd/MM/yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],"ShortestDayNames":["di","lu","ma","me","je","ve","sa"],"DayNames":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"AbbreviatedMonthNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],"IsReadOnly":true,"NativeCalendarName":"calendrier grégorien","AbbreviatedMonthGenitiveNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthGenitiveNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""]},"eras":[1,"ap. J.-C.",null,0]};//]]>
+</script>
+
+<script src="../../ScriptResource7d10.js?d=1z6J2j_mXp0nz1DoNxCyWxVp49prDP0hzhZK9tQDNhJ_XtntM5ofbpOPl_y4WSnJkz8xuxKGfSCwm2F-VJnyZ8N0tqQFzdBhm0fIoIN6Ypiypp5GuohBou6dCmKYfLKKTBc9_ptYV__IyJeUUHZfNg2&amp;t=ffffffffe3663df5" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="../../ScriptResource7fe4.js?d=lj-HLEmHQXhTPi-OLl3kMfyVl30vq80wr-Ps19Zw_TYZ3X3hzJjfcBNa_Lkm0nWT2oE8qw3Jcv_XEx2FLZfiwaCvoFOlKGOdAmOZJRZH1HPV6wUN181YrwnlWnviB7jw-nEw-DAkw50FHcLmfdheHQ2&amp;t=ffffffffe3663df5" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="14B7A216" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAEVsV+EyUv+AKXzE++vJlu3aP1d30CdA/K+RbFANGac6SHS5DlgAGHjTW68QgQ8yQ/7Io453NsjPVbV8aOKW+jle6ffEg66icLvGqkvjALpN6jLueDF8GIrHZhJQzmzxYYaWIJnTfhvfwo9ztxUJcHbxK5xLJM5p3J6Z/qky8jQyIlJ6A9WNGWcXDY3+HeuxaYppsq5V7tk9D5V0Z+RiAFLysWKW7miXAmVQUvTxzCNDDnZgAK6f4tszm56dXCac3+7H3P2PX4vl/0IkeGGByu2bH4uL6PhInH5YQBc3Z8bQD75r5hzkOYoXPnJoIr4XwUOUgC/7pHRRYpQClGpBqaSzKehgVc6G1t6bb1j2Y0+BcLTTscBSjh6nMOVR3YKry269RqfYxd/A9eeCFTVVlxOgdqfkZZYER0iVO8FSA0jO1Sg+YKrMLzef8Cpjh9ueiCogestBg5Qi9cLDGt1m71yxUJw+G73SWltj7m4Cuju9NbmM91W/fQ11ESMENyv2cruofQ7gliA0u3jRlfxm/QMvyur4tZ0R3KvNUf+y9i9BmewcIu3xvvwUe5F3ZrIZ3FuOXi8spkW8cMnoLBzNKuiIMsAw9vDbAa4hmZefAzQeQaqf5TFdILagNgnwCwZiOw9azGL9CcqmkTVVdZ9M6ZX3xq4VXjRPFw23fz5DBTHCWT04IpDlnhurthRJ05snui8i9HEovXJeKdzI5XclDDHHfNGDIbkv0esidyKwcdDbBKit4f/tQOg+eg8+dPFteRuGiuFqTY51VwFaQdbYWDbbkJlPcl1He69lajmuK1D/D5njVX6vXci0BImLGnvFjKeGiZS6KWY7Zf1GbPfmFMDQzDPq4F3vjYBwIA/bpazGP3+OI3I0LrVNpNmwe7SkyzQlEkUmdiWkOE8cJIIuIttbPn5acHlBpIs4cWubmIIrjAlQOjwNu2g5XW3tKPXqCFYvfgB7Gst+VOYe25G+iF3Ws0JqaIFkf2T5taksa2V7xEbFX2pGQTovU4LTdVrGXVLVkIWAMt19n4uv1UecYj9kIW+Nz5Lc12mpYMWxfk/ZfdMZFw4KR5t7HMJloeoBsBReG0xap14senYBu10k0UBh0pgYYwxZxdyxHqIal5dKg9l/Jnmio/cDLD4An5fOuCDS14fUu5bf7lm1zcwWj8bfQ3tDGfgYgaIvJF83etOjdnFI56MTCYd8u0nhxJ+DOuRlEMlZisqLwXDdNZIk4JSe4BuXxyaTcs76t4YzS5orQt4qLRuRtX8SOmBeqfRd9yLRwaTSMimOFEZ4wSNBOA0gxysgVEaRZHeeVwBkiTDw9qg4uHn4fOYn/42IUpxXHUHswJZw+Z4LBmozer5g6gA2G5d3Y38/nHJjAUUaz5rA2x8TfDkWECSxV5wOod3b0WnviyROww59aFrEQy2p7rntSFIdUPi+4d1kn5JyG7zd2Obd5knjk7ELyGVyvfHDJIWVrczx5ZKJNYkVMypRsVi6o9H744x5pp0UObLEDfcu+Q==" />
+</div>	
+		<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div id="Page" class="PageDefault Portail8 Module55 Appli5">
+            <div id="haut" class="LargeurTotale">
+                <div id="HautMenu">
+                    <div id="Header">
+                        <div id="HautDroite">
+                            <div class="LargeurMax">
+                                <div class="BlocLogo">
+                                    <a href="../../accueil.html">
+											<img id="IMGLogoMenu" src="../../images/default/logos_h70.jpg"
+                                            border="0" />
+											<!--<img id="IMGLogoMenu" src="/images/default/Logo_Octobre_Rose.png"
+                                            border="0" />-->
+										
+                                    </a>
+                                </div>
+                                <h1>Hôpitaux de Sarreguemines</h1>								
+								<div id="BlocRecherche">
+									<div onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ValiderRecherche&#39;)" style="position: relative;float:left;width:100%;padding:0;">
+	
+									<input name="ctl00$inputGroup" id="ctl00_inputGroup" type="text" class="form-control" placeholder="Recherche" style="position: relative;float:right;display:inline-block;height:32px;" />
+									<a id="ctl00_ValiderRecherche" href="javascript:__doPostBack(&#39;ctl00$ValiderRecherche&#39;,&#39;&#39;)" style="position: relative;float:right;display:inline-block;"><i class="fas fa-search SearchIcon"></i></a>							
+										
+										
+									
+</div>
+								</div>
+                                <a id="ctl00_HLUrgences" href="../../urgences/2/64.html">
+                                <div class="Urgences" style="padding:10px;">
+                                    <!--<img src="/images/default/urgences.png"
+                                            border="0" />-->
+											<!--<img class="fas fa-bell fa-2x">-->
+											 <div style="color:#ffffff;    font-size: 16px;"> Urgences</div>
+                                    
+                                </div>
+									</a>
+                                <a id="ctl00_HLConsultationMedecin" href="../../Rendez-vous-en-ligne/2/30.html">
+                                <div class="ConsultationMedecin">
+                                    <i class="fas fa-user-md fa-3x"></i>
+                                   <div style="color:#ffffff;   font-weight:bold; font-size: 17px;"> Prendre un <br>rendez-vous</div>
+                                </div>
+									</a>
+                                
+
+
+                        </div>
+                            </div>
+                        <div id="BandeauMenu">
+                        <div class="LargeurMax">
+                            <div id="BandeauMenuContenu">
+								<div class="BlocTel">								
+								<i class="fas fa-phone"></i><b>CHS</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;98&nbsp;00 
+								-
+								<b>R.&nbsp;PAX</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;33&nbsp;10
+								-
+								<b>ST&nbsp;JOSEPH</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;98&nbsp;76&nbsp;00 
+								</div>
+                                <div id="Menu">
+                                    
+                                            <div id="Portail8" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(8);'
+                                                onmouseout='javascript:PortailOut(8);'>
+                                                <div class='PortailLienOver'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl00_HLPortail" class="PortailLien" href="../../Offre-de-soins/2/68.html">Offre de soins
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl00$HFPortail" id="ctl00_RepeaterPortail_ctl00_HFPortail" value="8" />
+
+                                                    <div id="CadreModule8" class='Cache'>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div id="Portail2" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(2);'
+                                                onmouseout='javascript:PortailOut(2);'>
+                                                <div class='PortailLien'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl01_HLPortail" class="PortailLien">Patient et entourage
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl01$HFPortail" id="ctl00_RepeaterPortail_ctl01_HFPortail" value="2" />
+
+                                                    <div id="CadreModule2" class='Cache'>
+                                                        
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(75);'
+                                                                    onmouseout='javascript:CacheSousModule(75);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl00$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl00_HFModule" value="75" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl00_HLModule" class="ModuleLien" href="../../Consultations/3/75/116.html">Consultation</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_75' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(57);'
+                                                                    onmouseout='javascript:CacheSousModule(57);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl01$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl01_HFModule" value="57" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl01_HLModule" class="ModuleLien" href="../../Hospitalisation/3/57/78.html">Hospitalisation</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_57' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(77);'
+                                                                    onmouseout='javascript:CacheSousModule(77);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl02$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl02_HFModule" value="77" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl02_HLModule" class="ModuleLien" href="../../Visiter-un-proche/3/77/121.html">Rendre visite à un proche</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_77' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(37);'
+                                                                    onmouseout='javascript:CacheSousModule(37);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl03$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl03_HFModule" value="37" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl03_HLModule" class="ModuleLien" href="../../r%c3%a8glementation/2/37.html">REGLEMENTATION</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_37' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(38);'
+                                                                    onmouseout='javascript:CacheSousModule(38);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl01$RptModule$ctl04$HFModule" id="ctl00_RepeaterPortail_ctl01_RptModule_ctl04_HFModule" value="38" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl01_RptModule_ctl04_HLModule" class="ModuleLien" href="../../Satisfaction/3/38/110.html">Satisfaction</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_38' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div id="Portail7" class="Portail" style="padding:0;" onmouseover='javascript:PortailOver(7);'
+                                                onmouseout='javascript:PortailOut(7);'>
+                                                <div class='PortailLien'>
+
+                                                    <a id="ctl00_RepeaterPortail_ctl02_HLPortail" class="PortailLien">Professionnels
+													<i class="fas fa-chevron-down"></i>
+													</a>
+                                                    <input type="hidden" name="ctl00$RepeaterPortail$ctl02$HFPortail" id="ctl00_RepeaterPortail_ctl02_HFPortail" value="7" />
+
+                                                    <div id="CadreModule7" class='Cache'>
+                                                        
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(89);'
+                                                                    onmouseout='javascript:CacheSousModule(89);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl00$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl00_HFModule" value="89" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl00_HLModule" class="ModuleLien" href="../../comite-ethique/2/89.html">Comité Ethique</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_89' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(95);'
+                                                                    onmouseout='javascript:CacheSousModule(95);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl01$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl01_HFModule" value="95" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl01_HLModule" class="ModuleLien" href="../../pepiniere-d-entreprise-e-sante-ccdl/3/95/147.html">Pépinière d'entreprise E-santé CCDL</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_95' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(31);'
+                                                                    onmouseout='javascript:CacheSousModule(31);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl02$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl02_HFModule" value="31" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl02_HLModule" class="ModuleLien" href="../../Professionnels-de-sante/3/31/50.html">Professionnels de santé</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_31' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(32);'
+                                                                    onmouseout='javascript:CacheSousModule(32);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl03$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl03_HFModule" value="32" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl03_HLModule" class="ModuleLien" href="../../Emploi/7/32.html">Offres d'emploi</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_32' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(88);'
+                                                                    onmouseout='javascript:CacheSousModule(88);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl04$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl04_HFModule" value="88" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl04_HLModule" class="ModuleLien" href="../../signalement-des-violences-et-du-harcelement/2/88.html">Signalement des violences et du harcèlement</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_88' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                                <div class='CadreModule'
+                                                                    onmouseover='javascript:AfficheSousModule(34);'
+                                                                    onmouseout='javascript:CacheSousModule(34);'>
+                                                                    <div class="Module">
+                                                                        <input type="hidden" name="ctl00$RepeaterPortail$ctl02$RptModule$ctl05$HFModule" id="ctl00_RepeaterPortail_ctl02_RptModule_ctl05_HFModule" value="34" />
+
+                                                                        <a id="ctl00_RepeaterPortail_ctl02_RptModule_ctl05_HLModule" class="ModuleLien" href="../../Fournisseurs/3/34/47.html">Achats, fournisseurs</a>
+                                                                    </div>
+                                                                    <div id='CadreSousModule_34' class="CadreSousModule"
+                                                                        style="display: none;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="HautTrait">
+                    <div id="LogoTrait">
+                        <a href="../../accueil.html">
+                            <img id="IMGLogoTrait" src="../../images/Default/logos_h70-2.jpg"
+                                border="0" /></a>
+                    </div>
+						<div class="BlocTel">								
+								<i class="fas fa-phone"></i><b>CHS</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;98&nbsp;00 
+								-
+								<b>R.&nbsp;PAX</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;27&nbsp;33&nbsp;10
+								-
+								<b>ST&nbsp;JOSEPH</b>&nbsp;:&nbsp;03&nbsp;87&nbsp;98&nbsp;76&nbsp;00 
+								</div>
+                    <div id="MenuTrait">
+                        <i class="fas fa-bars fa-2x" style="cursor: pointer;" onclick="javascript:AfficheCacheDiv('MenuPortable');"></i>
+                    </div>
+                </div>
+                <div id="MenuPortable" class="Cache">
+                    <div id="StructurePortable">
+                        
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../Offre-de-soins/2/68.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl00_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl00$LinkButton1&#39;,&#39;&#39;)">OFFRE DE SOINS</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../../erreur404.aspx/index.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl01_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$LinkButton1&#39;,&#39;&#39;)">PATIENT ET ENTOURAGE</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Consultations/3/75/116.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl00_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl00$LinkButton2&#39;,&#39;&#39;)">Consultation</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Hospitalisation/3/57/78.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl01_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl01$LinkButton2&#39;,&#39;&#39;)">Hospitalisation</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Visiter-un-proche/3/77/121.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl02_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl02$LinkButton2&#39;,&#39;&#39;)">Rendre visite à un proche</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../r%c3%a8glementation/2/37.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl03_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl03$LinkButton2&#39;,&#39;&#39;)">REGLEMENTATION</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Satisfaction/3/38/110.html";'>
+                                                    <a id="ctl00_RptPortail_ctl01_RptModule1_ctl04_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl01$RptModule1$ctl04$LinkButton2&#39;,&#39;&#39;)">Satisfaction</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class='SP_FondPortail'>
+                                    <div class='SP_Portail' onclick='window.location.href="../../Professionnels-de-sante/3/31/50.html";'>
+                                        <div class='SP_PortailTitre'>
+                                            <a id="ctl00_RptPortail_ctl02_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$LinkButton1&#39;,&#39;&#39;)">PROFESSIONNELS</a>
+                                        </div>
+                                    </div>
+                                    <div class='SP_Module1'>
+                                        
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../comite-ethique/2/89.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl00_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl00$LinkButton2&#39;,&#39;&#39;)">Comité Ethique</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../pepiniere-d-entreprise-e-sante-ccdl/3/95/147.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl01_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl01$LinkButton2&#39;,&#39;&#39;)">Pépinière d'entreprise E-santé CCDL</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Professionnels-de-sante/3/31/50.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl02_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl02$LinkButton2&#39;,&#39;&#39;)">Professionnels de santé</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Emploi/7/32.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl03_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl03$LinkButton2&#39;,&#39;&#39;)">Offres d'emploi</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../signalement-des-violences-et-du-harcelement/2/88.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl04_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl04$LinkButton2&#39;,&#39;&#39;)">Signalement des violences et du harcèlement</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                                <div class='SP_Module1Texte' onclick='window.location.href="../../Fournisseurs/3/34/47.html";'>
+                                                    <a id="ctl00_RptPortail_ctl02_RptModule1_ctl05_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$RptPortail$ctl02$RptModule1$ctl05$LinkButton2&#39;,&#39;&#39;)">Achats, fournisseurs</a>
+                                                </div>
+                                                <div class='SP_Module2' style='display:none;'>
+                                                    
+                                                </div>
+                                            
+                                        <div class="SP_EspaceModule">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                    </div>
+                </div>
+            </div>
+            <div id="CentreImage" style='background: url(../../Ressources/FTP/bandeau_module/Module_Def.jpg) no-repeat center center; -webkit-background-size: 100%; background-size: 100%;'>
+            </div>
+            <div id="BlocContenu">
+                <div id="Outils" class="LargeurMax">
+                    <div style="position: relative; width: auto; float: left;">
+                        <div style="position: relative; float: left; width: auto; margin: 8px 6px 0 15px;">
+                            <a href="../../Accueil-2.html">
+                                <img src='../../images/Default/Maison.png' border="0" /></a>
+                        </div>
+                        <div style="position: relative; float: right; margin-top: 8px; margin-right: 6px;">
+                            <a href="javascript:CallPrint()">
+                                <img src="../../images/Default/print.png" border="0"
+                                    title="Imprimer le texte" />
+                            </a>
+                        </div>
+                        <div style="position: relative; float: right; margin-top: 12px; margin-right: 10px;">
+                            <input type="image" name="ctl00$IBAMoins" id="ctl00_IBAMoins" src="../../images/Default/AMoins.png" style="border-width:0px;" />
+                            <input type="image" name="ctl00$IBA" id="ctl00_IBA" src="../../images/Default/A.png" style="border-width:0px;" />
+                            <input type="image" name="ctl00$IBAPlus" id="ctl00_IBAPlus" src="../../images/Default/APlus.png" style="border-width:0px;" />
+                        </div>
+                    </div>
+                </div>
+                <div id="BlocFilAriane" class="LargeurMax">
+                    <div id="ctl00_PanFilDAriane">
+	
+                    
+</div>
+                </div>
+                <div id="Contenu" class="row LargeurMax">
+                    <div id="Gauche" class="col-xs-12">
+                        
+                        
+                        <div id="ctl00_PanEnteteListe">
+	                            
+                            <div class="EnteteEtablissementListe">
+                                <div class="Bandeau col-md-12">
+                                    <div class="BandeauHaut">
+                                        <span id="ctl00_LabEntetePortail" class="Portail">Offre de soins</span>
+										<div class="Module" >		
+											<span id="ctl00_LabEnteteModule" class="LabModule">Offre de soins CH</span>	
+											
+										<div class="ListeItem" >		
+											<span id="ctl00_LabEnteteListeItem">Item Liste</span>
+											</div>
+											
+										</div>
+                                    </div>
+
+
+                                </div>
+								
+                                <div class="Logo col-md-2">
+								
+								<a id="ctl00_HLLogo"><img id="ctl00_ILogoListe" src="../../images/Default/logos.jpg" style="border-width:0px;" /></a>
+                                </div>
+                            </div>
+                        
+</div>
+
+                        <div id="ctl00_PanOffresdeSoins">
+	  
+							<div class="LargeurMax">
+								<!-- Image Map Generated by http://www.image-map.net/ -->
+								<img src="../../images/Default/OFFRE-DE-SOINS-2023-min.jpg" style="width:100%;margin:30px auto;" alt="" usemap="#image-map">
+								<map name="image-map">
+									<area alt="Offre de soin du Centre Hospitalier spécialisé de Sarreguemines" href='../../offres-de-soins/5/65.html' coords="1,1,451,612" shape="rect">
+									<area alt="Offre de soin de l'Hôpital Robert-Pax" href='55.html' coords="468,1,904,612" shape="rect">
+									<area alt="Offre de soin de l'Hôpital St-Joseph" href='55.html' coords="947,1,1399,612" shape="rect">
+								</map>
+								<!--<a id="ctl00_HLODS_CHS" href="/offres-de-soins/5/65">
+								<div class="ODS_CHS col-md-6">
+									<div class="PlanCHS">							
+									</div>
+									<div class="Logo">									
+										<img src="/images/Default/Logo-CHS.png" />
+									</div>
+								</div> 
+								</a>
+								<a id="ctl00_HLODS_CH" href="/Offre-soins/5/55">
+								<div class="ODS_CH col-md-6">							
+									<div class="PlanCH">						
+									</div>
+									<div class="Logo">
+										<img src="/images/Default/Logo-CH.png" />						
+									</div>					
+								</div>
+								</a>-->
+								
+								<!--<img src="/images/Default/OFFRE-DE-SOINS-2020.jpg" style="width:100%;margin:30px auto;" alt="" usemap="#Map">
+								<map name="Map">
+									<area shape="poly" alt="CHS" coords="0,0, 796,0, 568,640, 0,640" href=' /offres-de-soins/5/65 '>
+									<area shape="poly" alt="CH" coords="833,0, 1400,0, 1400,640, 605,640" href=' /Offre-soins/5/55 '>
+								</map>-->
+							</div>
+
+							
+						
+</div>
+                        <div id="ctl00_PanContentPlaceHolder1">
+	
+                            <div class="TitreModule" style="position: relative; width: 100%; float: left;">
+                                <h1>
+                                    <span id="ctl00_LabModule">Offre de soins CH</span></h1>
+                            </div>
+                            <!-- Contenu du module -->
+                            
+    <style type="text/css">
+        [class*="col-"]
+        {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    </style>
+    <div>
+        
+        
+        <div style="position: relative; width: 100%; float: left; text-align: center;">
+            <!-- Affichage 2 colonnes par ordre alphabétique des services -->
+            
+            <!-- Affichage 1 colonne par pôle -->
+            
+            <!-- Affichage sous forme de vignettes -->
+            
+
+            <!-- Affichage sous forme de bloc Pole Couleur -->
+            <div id="ctl00_ContentPlaceHolder1_PanPoleCouleur">
+		
+			<!--<div class="row row-eq-height" style="padding-top:0; padding-bottom:0;margin:0;">-->
+			<div class="row row-eq-height" style="padding-top:0; padding-bottom:0;margin:0;">
+                
+                        <div class="BlocPoleCouleurColonne8 col-xs-12 col-md-6">
+                            <div class="BlocPoleCouleur BlocPoleCouleur8">
+                                <div class="TitrePole" style="cursor: pointer;" onclick='javascript:AfficheCacheServicesPole(8);'>
+                                    <span id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_LabPoleTitre" value="8">POLE CHIRURGIE</span>
+                                </div>
+                                <div class="BlocPoleCouleurContenu">
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$HFPole" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_HFPole" value="8" />
+                                    <div id="BlocPoleCouleurService8" class="" >
+                                        
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl00_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Anesthesie/5/55/99.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl00$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl00_HFService" value="99" />												
+                                                    <div  >
+                                                    Anesthésie/Réanimation
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl00_IPicto" src="../../Ressources/ODS/anesthesie%202020%20100x1002020030909553301.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl01_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Chirurgie-Ambulatoire/5/55/2.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl01$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl01_HFService" value="2" />												
+                                                    <div  >
+                                                    Chirurgie ambulatoire
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl01_IPicto" src="../../Ressources/ODS/chirurgie%20ambulatoire100x1002019121217193777.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl02_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Chirurgie-generale-digestive/5/55/31.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl02$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl02_HFService" value="31" />												
+                                                    <div  >
+                                                    Chirurgie générale et digestive
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl02_IPicto" src="../../Ressources/ODS/chirurgie%20generale%20et%20digestive%202020%20100x1002020030909541270.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl03_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../chirurgie-gynecologique/5/55/98.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl03$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl03_HFService" value="98" />												
+                                                    <div  >
+                                                    Chirurgie gynécologique
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl03_IPicto" src="../../Ressources/ODS/chir%20gyneco%20%202020%20100x1002020030909580515.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl04_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Chirurgie-ORL-OPH/5/55/30.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl04$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl04_HFService" value="30" />												
+                                                    <div  >
+                                                    Chirurgie ORL - OPH
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl04_IPicto" src="../../Ressources/ODS/chirurgie%20orl%20100x1002019121217073548.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl05_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../chirurgie-orthopedique-traumatologique/5/55/29.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl05$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl05_HFService" value="29" />												
+                                                    <div  >
+                                                    Chirurgie Orthopédique Traumatologique
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl05_IPicto" src="../../Ressources/ODS/chirurgie%20orthopedique%20traumato100X1002019121217215137.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl06_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Chirurgie-plastique-esthetique/5/55/27.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl06$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl06_HFService" value="27" />												
+                                                    <div  >
+                                                    Chirurgie plastique et esthétique
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl06_IPicto" src="../../Ressources/ODS/CHIRURGIE%20PLASTIQUE%20ET%20ESTHETIQUE100X1002019121217221712.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl07_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Chirurgie-urologique/5/55/28.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl07$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl07_HFService" value="28" />												
+                                                    <div  >
+                                                    Chirurgie Urologique
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl07_IPicto" src="../../Ressources/ODS/chirurgie%20urologique100x1002019121217224093.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl08_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Reanimation/5/55/1.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl00$RptPoleService$ctl08$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl08_HFService" value="1" />												
+                                                    <div  >
+                                                    Réanimation
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl00_RptPoleService_ctl08_IPicto" src="../../Ressources/ODS/reanimation%20100x1002019121217093518.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>						
+                        
+                    
+                        <div class="BlocPoleCouleurColonne7 col-xs-12 col-md-6">
+                            <div class="BlocPoleCouleur BlocPoleCouleur7">
+                                <div class="TitrePole" style="cursor: pointer;" onclick='javascript:AfficheCacheServicesPole(7);'>
+                                    <span id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_LabPoleTitre" value="7">POLE MEDECINE</span>
+                                </div>
+                                <div class="BlocPoleCouleurContenu">
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$HFPole" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_HFPole" value="7" />
+                                    <div id="BlocPoleCouleurService7" class="" >
+                                        
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl00_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../cardiologie/5/55/108.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl00$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl00_HFService" value="108" />												
+                                                    <div  >
+                                                    Cardiologie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl00_IPicto" src="../../Ressources/ODS/Plan%20de%20travail%2012024111310512072.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl01_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Gastro-enterologie/5/55/23.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl01$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl01_HFService" value="23" />												
+                                                    <div  >
+                                                    Gastro-entérologie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl01_IPicto" src="../../Ressources/ODS/gastro%202020%20100x1002020030909535444.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl02_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../HDJ/5/55/14.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl02$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl02_HFService" value="14" />												
+                                                    <div  >
+                                                    Hôpital de jour de médecine
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl02_IPicto" src="../../Ressources/ODS/hopital%20de%20jour%20100x1002019121217425405.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl03_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../CeGIDD/5/55/107.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl03$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl03_HFService" value="107" />												
+                                                    <div  >
+                                                    CeGIDD
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl03_IPicto" src="../../Ressources/ODS/cegidd%20RD2023031417021574.jpg" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl04_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Medecine-polyvalente/5/55/22.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl04$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl04_HFService" value="22" />												
+                                                    <div  >
+                                                    Médecine polyvalente
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl04_IPicto" src="../../Ressources/ODS/medecine%20polyvalente%202020%20100x1002020030909480531.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl05_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Pneumologie/5/55/17.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl05$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl05_HFService" value="17" />												
+                                                    <div  >
+                                                    Pneumologie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl05_IPicto" src="../../Ressources/ODS/pneumologie2020051110341309.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl06_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Clinique-douleur/5/55/12.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl06$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl06_HFService" value="12" />												
+                                                    <div  >
+                                                    Clinique de la douleur
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl06_IPicto" src="../../Ressources/ODS/clinique%20de%20la%20douleur%20100x1002019121217411434.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl07_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Urgences-CSNP-SMUR/5/55/16.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl07$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl07_HFService" value="16" />												
+                                                    <div  >
+                                                    Urgences - CSNP - SMUR
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl07_IPicto" src="../../Ressources/ODS/URGENCES%202020%20100x1002020030909382281.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl08_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../HAD/5/55/20.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl08$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl08_HFService" value="20" />												
+                                                    <div  >
+                                                    Hospitalisation à domicile
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl08_IPicto" src="../../Ressources/ODS/had%20100x1002019121217422365.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl09_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../geriatrie-soins-palliatifs/5/55/19.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl09$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl09_HFService" value="19" />												
+                                                    <div  >
+                                                    Gériatrie - Soins Palliatifs
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl09_IPicto" src="../../Ressources/ODS/geriatrie%20RD2023031417002624.jpg" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl10_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../SSR/5/55/25.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl10$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl10_HFService" value="25" />												
+                                                    <div  >
+                                                    SSR                                                             St-Joseph - Bitche
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl10_IPicto" src="../../Ressources/ODS/ssr%20100x1002019121217454928.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl11_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../USLD/5/55/24.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl01$RptPoleService$ctl11$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl11_HFService" value="24" />												
+                                                    <div  >
+                                                    USLD St Joseph BITCHE
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl01_RptPoleService_ctl11_IPicto" src="../../Ressources/ODS/gloriette%20RD2023031417013050.jpg" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>						
+                        </div><div class='row row-eq-height' style='padding-top:0; padding-bottom:0;margin:0;'>
+                    
+                        <div class="BlocPoleCouleurColonne9 col-xs-12 col-md-6">
+                            <div class="BlocPoleCouleur BlocPoleCouleur9">
+                                <div class="TitrePole" style="cursor: pointer;" onclick='javascript:AfficheCacheServicesPole(9);'>
+                                    <span id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_LabPoleTitre" value="9">MEDICO TECHNIQUE</span>
+                                </div>
+                                <div class="BlocPoleCouleurContenu">
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl02$HFPole" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_HFPole" value="9" />
+                                    <div id="BlocPoleCouleurService9" class="" >
+                                        
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl00_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Imagerie-medicale/5/55/7.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl02$RptPoleService$ctl00$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl00_HFService" value="7" />												
+                                                    <div  >
+                                                    Imagerie médicale
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl00_IPicto" src="../../Ressources/ODS/imagerie%20medicale100x1002019121109183737.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl01_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Medecine-nucleaire/5/55/9.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl02$RptPoleService$ctl01$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl01_HFService" value="9" />												
+                                                    <div  >
+                                                    Médecine nucléaire
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl01_IPicto" src="../../Ressources/ODS/medecine%20nucleaire100x1002019121109193886.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl02_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Laboratoire/5/55/8.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl02$RptPoleService$ctl02$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl02_HFService" value="8" />												
+                                                    <div  >
+                                                    Laboratoire de biologie médicale
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl02_IPicto" src="../../Ressources/ODS/labo%20biologie%20medicale100x1002019121109191136.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl03_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Pharmacie/5/55/10.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl02$RptPoleService$ctl03$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl03_HFService" value="10" />												
+                                                    <div  >
+                                                    Pharmacie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl02_RptPoleService_ctl03_IPicto" src="../../Ressources/ODS/pharmacie100x1002019121109195801.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>						
+                        
+                    
+                        <div class="BlocPoleCouleurColonne10 col-xs-12 col-md-6">
+                            <div class="BlocPoleCouleur BlocPoleCouleur10">
+                                <div class="TitrePole" style="cursor: pointer;" onclick='javascript:AfficheCacheServicesPole(10);'>
+                                    <span id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_LabPoleTitre" value="10">POLE MERE ENFANT</span>
+                                </div>
+                                <div class="BlocPoleCouleurContenu">
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl03$HFPole" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_HFPole" value="10" />
+                                    <div id="BlocPoleCouleurService10" class="" >
+                                        
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl00_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Maternite/5/55/103.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl03$RptPoleService$ctl00$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl00_HFService" value="103" />												
+                                                    <div  >
+                                                    Maternité - Gynécologie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl00_IPicto" src="../../Ressources/ODS/gynecologie%20maternite%20cpp%20cpef%20100x1002020030910005282.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl01_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Pediatrie/5/55/4.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl03$RptPoleService$ctl01$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl01_HFService" value="4" />												
+                                                    <div  >
+                                                    Pédiatrie
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl01_IPicto" src="../../Ressources/ODS/p%c3%a9diatrie%20hdj%20urgences%20pediatriques%20100x1002019121217473697.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl02_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../HAD-obstetrique/5/55/105.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl03$RptPoleService$ctl02$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl02_HFService" value="105" />												
+                                                    <div  >
+                                                    Hospitalisation à domicile obstétrique
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl02_IPicto" src="../../Ressources/ODS/had%20obst%202020%20100x1002020030909454301.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												</a>
+                                            
+                                                <a id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl03_HLService" class="col-xs-6 col-sm-4 col-lg-3" class="ListeServiceNom" href="../../Centre-perinatal-Bitche/5/55/104.html">
+                                                <div class="ServiceNom" >   
+													<input type="hidden" name="ctl00$ContentPlaceHolder1$RptPoleCouleur$ctl03$RptPoleService$ctl03$HFService" id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl03_HFService" value="104" />												
+                                                    <div  >
+                                                    Centre périnatal de proximité de Bitche 
+
+                                                    </div>
+                                                </div>
+                                                <div class="ServicePicto" >                                                    
+                                                    <div class="Picto" >
+                                                        <div>
+                                                            <img id="ctl00_ContentPlaceHolder1_RptPoleCouleur_ctl03_RptPoleService_ctl03_IPicto" src="../../Ressources/ODS/gynecologie%20maternite%20cpp%20cpef%20100x1002024031313504227.png" style="border-width:0px;" />   
+                                                        </div>
+                                                    </div>
+                                                </div>
+												
+												<div class='clearfix visible-sm visible-md'></div></a>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>						
+                        </div><div class='row row-eq-height' style='padding-top:0; padding-bottom:0;margin:0;'>
+                    
+				
+				</div>
+            
+	</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function AfficheCacheServicesPole(Div) {
+            if (window.document.getElementById("BlocPoleService" + Div).className == "BlocPoleService Cache") {
+                window.document.getElementById("BlocPoleService" + Div).className = "BlocPoleService Visible";
+            }
+            else {
+                window.document.getElementById("BlocPoleService" + Div).className = "BlocPoleService Cache";
+            }
+        }
+
+        function AfficheCacheServicesType(Div) {
+            if (window.document.getElementById("BlocTypeService" + Div).className == "BlocTypeService Cache") {
+                window.document.getElementById("BlocTypeService" + Div).className = "BlocTypeService Visible";
+            }
+            else {
+                window.document.getElementById("BlocTypeService" + Div).className = "BlocTypeService Cache";
+            }
+        }
+    </script>
+
+                        
+</div>
+                    </div>
+                </div>				
+				<div id="ctl00_FondGris" class="FondGris">
+	
+				
+</div>
+            </div>
+            <div id="Footer">
+                <div id="FooterContenu" class="row LargeurMax">
+                    <a id="ctl00_HLFooter_5" href="../../DON/2/6.html">FAIRE UN DON</a>
+                    <a id="ctl00_HLFooter_1" href="../../Contact/10/7.html">Nous contacter</a>
+                    <a id="ctl00_HLFooter_2" href="../../actualites/1/1.html">Communication</a>
+                    <a id="ctl00_HLFooter_3" href="../../Plan-site/16/17.html">Plan du site</a>
+                    <a id="ctl00_HLFooter_4" href="../../Mentions-legales/2/18.html">Mentions légales</a>
+                </div>
+            </div>
+			
+			<!-- Pop up -->
+			
+        </div>
+         <!-- Cookies -->   
+        <div id="ctl00_PanCookies" class="cookie-box cookie-box--hide">
+	
+                En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des statistiques de visite. 
+                    <input type="submit" name="ctl00$BCoookieAccepter" value="Accepter" id="ctl00_BCoookieAccepter" class="cookie-button" />
+                    <input type="submit" name="ctl00$BCoookieRefuser" value="Refuser" id="ctl00_BCoookieRefuser" class="cookie-button" />
+                   
+                    <!-- Lien vers la page Mentions légales ou Données personnelles
+                       Une ancre peut être ajoutée pour arriver directement sur le paragraphe
+                    -->
+                    <a id="ctl00_HLCookiesEnSavoirPlus" class="cookie-button" href="../../Mentions-legales/2/18.html#Cookies">En savoir plus</a>
+        
+</div>
+        <script type="text/javascript">
+            $(document).ready(function ($) {
+
+                // delegate calls to data-toggle="lightbox"
+                $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        onShown: function () {
+                            if (window.console) {
+                                return console.log('Checking our the events huh?');
+                            }
+                        },
+                        onNavigate: function (direction, itemIndex) {
+                            if (window.console) {
+                                return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);
+                            }
+                        }
+                    });
+                });
+
+                //Programatically call
+                $('#open-image').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+                $('#open-youtube').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+
+                $(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        onShown: function () {
+                            var lb = this;
+                            $(lb.modal_content).on('click', '.modal-footer a', function (e) {
+                                e.preventDefault();
+                                lb.navigateTo(2);
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+        
+
+        <!-- Responsive slider -->
+        <script src="../../Scripts/ResponsiveSlider/responsiveslides.js"></script>
+        <script>
+            $(function () {
+                $(".rslides").responsiveSlides({
+                    auto: true,             // Boolean: Animate automatically, true or false
+                    speed: 1000,            // Integer: Speed of the transition, in milliseconds
+                    timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+                    pager: true,           // Boolean: Show pager, true or false
+                    nav: false,             // Boolean: Show navigation, true or false
+                    random: false,          // Boolean: Randomize the order of the slides, true or false
+                    pause: false,           // Boolean: Pause on hover, true or false
+                    pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+                    prevText: "Previous",   // String: Text for the "previous" button
+                    nextText: "Next",       // String: Text for the "next" button
+                    maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+                    navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+                    manualControls: "",     // Selector: Declare custom pager navigation
+                    namespace: "rslides",   // String: Change the default namespace used
+                    before: function () { },   // Function: Before callback
+                    after: function () { }     // Function: After callback
+                });
+            });
+			
+
+        </script>
+		
+		
+	<script type="text/javascript" src="../../Scripts/imageMapResponsive/jquery.rwdImageMaps.min.js"></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(e) {
+		$('img[usemap]').rwdImageMaps();
+		
+	});
+	
+	</script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ctl00_ToolkitScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+
+<!-- Mirrored from www.hopitaux-sarreguemines.fr/Offre-soins/5/55 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:05:01 GMT -->
+</html>
