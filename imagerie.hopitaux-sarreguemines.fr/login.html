@@ -1,0 +1,193 @@
+
+
+
+
+ 
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="../www.w3.org/1999/xhtml/index.html">
+
+<!-- Mirrored from imagerie.hopitaux-sarreguemines.fr/login.app;jsessionid=B740F6A340DA99A61EF1CC095F562A1C by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:06:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta name="robots" content="noindex, nofollow" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Telemis TMP Web</title>
+<link href="https://imagerie.hopitaux-sarreguemines.fr/css/styles.css" rel="stylesheet" type="text/css" />
+	
+<!-- GDPR Script -->
+
+<!-- GDPR Script -->
+	<link rel="shortcut icon" href="https://imagerie.hopitaux-sarreguemines.fr/img/favicon.ico" />
+	<!-- GDPR Script -->
+	<script type="text/javascript" src="https://www.telemis.com/sites/default/files/js/gdpr.js"></script>
+</head>
+<body>
+
+
+
+
+<script language="javascript" type="text/javascript">
+	function setCookie(cname, cvalue) {
+		var d = new Date();
+		d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+
+			while (c.charAt(0) === ' ') {
+				c = c.substring(1);
+			}
+
+			if (c.indexOf(name) === 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+
+		return "";
+	}
+
+	var isIE11 = /Trident.*rv[ :]*11\./.test(navigator.userAgent);
+
+	if (isIE11 === true) {
+		if (getCookie("ie11.warning.read") === "") {
+			var answer = confirm('Votre navigateur est Internet Explorer 11. Il vous empêchera d\'afficher ce site correctement. Une mise à niveau n\'est pas nécessaire, mais vivement recommandée afin d\'améliorer votre expérience de navigation.\n\nCliquez sur \'OK\' pour ne plus afficher cette boite de dialogue dans le futur.');
+
+			if (answer) {
+				setCookie("ie11.warning.read", true);
+			}
+		}
+	}
+</script>
+
+<div id="login">
+  	<h1>
+		
+			
+				<a href="http://www.hopitaux-sarreguemines.fr/" target='_blank'>
+					<img src="https://imagerie.hopitaux-sarreguemines.fr/_hospitalLogo.app" border="0" height="100" />
+				</a>
+		    
+			
+		
+		
+		<div style = "float: right;">
+			<span style="width:100%; font-size:14pt; vertical-align:middle;">
+				Centre Hospitalier de Sarreguemines
+			</span>
+		</div>
+	</h1>
+  
+  	<center>
+		<table border="0" cellspacing="0" cellpadding="0" align="center" class="layoutContainer" style="-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;border:1px solid #D1D1D1;">
+	
+			<tr valign="top"><td>
+				<!--
+  Login page, to be customized according to the specific needs a the hospital/institution
+  $Id: login.htm 17721 2011-06-22 11:39:35Z pp $
+-->
+<div style="-moz-border-radius:4px 4px 4px 4px;
+-webkit-border-radius:4px 4px 4px 4px;
+background:none repeat scroll 0 0 #0F67A5;
+color:#FFFFFF;
+font-size:16px;
+font-weight:bold;
+margin:16px;
+padding:12px 20px;">
+	Bienvenue sur le site d'imagerie du Centre Hospitalier de Sarreguemines
+</div>
+
+<form id="loginForm" method="post" action="https://imagerie.hopitaux-sarreguemines.fr/login.app">
+<center>
+<div style="margin:10px 16px 16px 16px; text-align:center;">
+	<table border="0" align="center" cellspacing="0" cellpadding="0" style="padding:10px; background-color:#F4F4F4;-webkit-border-radius:4px 4px 4px 4px;-moz-border-radius:4px 4px 4px 4px;">
+		<tr>
+			<td align="left" width="60%" style="border-bottom:0; border-right:1px solid #E4E4E4">
+				<label for="username"><b>Numéro d'examen :</b></label>
+				<input type="text" name="field1" size="16" value="" />&nbsp;&nbsp;<i>Ex.: A1000XXXX</i>
+				<label for="password"><b>Date de naissance :</b></label>
+				<input type="text" name="field2" size="16" value="yyyy-mm-dd" />&nbsp;&nbsp;<i>Ex.: 1984-01-23</i>
+				<br/><br/>     
+				<!--<input class="form-button" type="button" value=" Demo " onclick="onDemo()" >-->
+				<input class="form-button" type="submit" value=" Connexion " style="font-size:14px; font-weight:bold;"/>
+			</td>
+			<td width="40%" style="vertical-align:middle; border:0;" align="center">
+				<img src="https://imagerie.hopitaux-sarreguemines.fr/_externalImage.app?filename=secured.gif" />
+				<br/><br/>
+				<a href="https://imagerie.hopitaux-sarreguemines.fr/user_login.app"> Accès aux examens par Login<br/> (Réservé aux professionnels de santé) </a>
+				<br/>
+			</td>
+		</tr>
+	</table>
+</div>
+</center>
+<script>
+function onDemo()
+{
+	loginForm.field1.value = "5216846";
+	loginForm.field2.value = "1984-01-23";
+	loginForm.submit();
+}
+</script>
+</form>
+			</td></tr>
+		</table>
+	</center>
+		<script>
+			var oLoginForm = document.forms['loginForm'];
+			function showFieldValue(fieldIndex, fieldValue)
+			{
+				var fieldName = "field"+fieldIndex;
+				if (loginForm.elements[fieldName] =! null)
+					loginForm.elements[fieldName].value = fieldValue;
+			}
+		
+		
+		
+			if (oLoginForm.elements["field1"] != null)
+			{
+				oLoginForm.elements["field1"].focus();
+				oLoginForm.elements["field1"].select();
+			}
+		</script>
+        </form>
+     
+	
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+
+
+<script>
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+</script>
+
+<div id="footer">
+    <p>
+        <a href="http://www.telemis.com/" target='_blank'>
+            Telemis
+        </a>
+        &copy;
+        <script type="text/javascript">document.write(new Date().getFullYear());</script>
+        Tous droits réservés.
+        rue René Francois Jolly, 2   57200 Sarreguemines - <a href='mailto:info@telemis.com'>info@telemis.com</a> - <a href='http://www.hopitaux-sarreguemines.fr/'>www.hopitaux-sarreguemines.fr</a>
+    </p>
+</div>
+
+</div>
+</body>
+
+<!-- Mirrored from imagerie.hopitaux-sarreguemines.fr/login.app;jsessionid=B740F6A340DA99A61EF1CC095F562A1C by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Jul 2025 14:06:40 GMT -->
+</html>

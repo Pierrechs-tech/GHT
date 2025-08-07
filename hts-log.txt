@@ -1,0 +1,23 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 04 Jul 2025 16:02:31 at https://www.hopitaux-sarreguemines.fr/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qYC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" -Y https://www.hopitaux-sarreguemines.fr/ -O1 "C:\My Web Sites\PROJET SITE WEB" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+16:02:32	Warning: 	File not parsed, looks like binary: https://www.hopitaux-sarreguemines.fr/robots.txt
+16:04:06	Error: 	"Error when decompressing" (-1) at link https://www.hopitaux-sarreguemines.fr/r√®glementation/2/37 (from https://www.hopitaux-sarreguemines.fr/)
+16:04:11	Error: 	"Unable to get server's address: unknown error" (-5) after 2 retries at link erreur404.aspx/robots.txt (from https://www.hopitaux-sarreguemines.fr/)
+16:04:11	Warning: 	Retry after error -5 (Unable to get server's address: HÙte inconnu. ) at link erreur404.aspx/ (from https://www.hopitaux-sarreguemines.fr/)
+16:05:21	Warning: 	Moved Temporarily for https://imagerie.hopitaux-sarreguemines.fr/
+16:05:21	Warning: 	File has moved from https://imagerie.hopitaux-sarreguemines.fr/ to https://imagerie.hopitaux-sarreguemines.fr/login.app;jsessionid=B740F6A340DA99A61EF1CC095F562A1C
+16:05:26	Error: 	"Forbidden" (403) at link https://www.facebook.com/CH.sarreguemines/ (from https://www.hopitaux-sarreguemines.fr/)
+16:05:33	Warning: 	Link https://www.google.com/maps/d/embed?mid=1n5FxszS2Im8NJn_qf2JtvTOINZUfA53z not scanned (follow robots meta tag)
+16:05:48	Warning: 	Retry after error -5 (Unable to get server's address: unknown error) at link erreur404.aspx/ (from https://www.hopitaux-sarreguemines.fr/)
+16:06:40	Warning: 	Link https://imagerie.hopitaux-sarreguemines.fr/login.app;jsessionid=B740F6A340DA99A61EF1CC095F562A1C not scanned (follow robots meta tag)
+16:06:40	Error: 	"Not Found" (404) at link https://www.google.com/maps/d/POST (from https://www.google.com/maps/d/embed?mid=1n5FxszS2Im8NJn_qf2JtvTOINZUfA53z)
+16:06:40	Error: 	"Unable to get server's address: unknown error" (-5) after 2 retries at link erreur404.aspx/ (from https://www.hopitaux-sarreguemines.fr/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 4 minutes 29 seconds : 566 links scanned, 552 files written (221584345 bytes overall) [209352138 bytes received at 778260 bytes/sec], 17082365 bytes transferred using HTTP compression in 218 files, ratio 26%, 1.0 requests per connection
+(5 errors, 7 warnings, 0 messages)
