@@ -1,0 +1,63 @@
+﻿
+/*SlideShow Actus*/
+#containerActus {
+	width: 100%; 
+	height: 100%;
+	position: absolute;
+	z-index:10;
+	background:Red;
+	
+}
+div#slideshowActus {
+	width: 180px;
+	height: auto;
+	margin:100px 20px 0;
+	overflow: hidden; /* Allows the slides to be viewed using scrollbar if Javascript isn't available */ 
+	position: absolute;
+	z-index: 10;
+}
+
+div#slideshowActus ul#slidesActus
+{
+	margin:0;
+	padding:0;
+	list-style: none;
+	text-indent:0;
+	width: 100%; height: 100%;
+}
+
+div#slideshowActus ul#slidesActus li
+{
+	margin:0;
+	padding:0;
+	width: 100%; 
+	height: 100%;
+	background:none;
+}
+
+.CentreTitre
+{
+    color:#ffffff;
+    font-size:36px;
+}
+
+.CentreDate, .CentreDate a
+{
+    color:#ffffff;
+    font-size:18px;
+    text-decoration:none;
+}
+
+.CentreTexte, .CentreTexte a
+{
+    color:#ffffff;
+    font-size:21px;
+    text-decoration:none;
+    margin-top:20px;
+    display:inline-block;
+    text-align:left;   
+}
+
+
+
+
